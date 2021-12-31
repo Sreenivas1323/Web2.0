@@ -1,10 +1,16 @@
-import { ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider } from "@chakra-ui/react";
+
+import { Chakra } from "./chakra";
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ChakraProvider>
-      <Component {...pageProps} />
-    </ChakraProvider>
+    <Box maxW="900px" mx="auto">
+      <Chakra cookies="cookies">
+        <ChakraProvider>
+          <Component {...pageProps} />
+        </ChakraProvider>
+      </Chakra>
+    </Box>
   );
 }
 
