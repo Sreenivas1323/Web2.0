@@ -7,7 +7,7 @@
   src: url("/fonts/MonoLisa-Bold.woff");
   font-style: normal;
   font-weight: 800;
-  font-display: fallback;
+  font-display: optional;
 }
 
 @font-face {
@@ -15,5 +15,5 @@
   src: url("/fonts/Monolisa-Regular.woff");
   font-style: normal;
   font-weight: 400;
-  font-display: fallback;
+  font-display: optional;
 }
