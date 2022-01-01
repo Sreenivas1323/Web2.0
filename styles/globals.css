@@ -1,3 +1,19 @@
 * {
   -webkit-tap-highlight-color: transparent;
+  background-color: black;
+}
+@font-face {
+  font-family: "MonolisaBold";
+  src: url("/fonts/MonoLisa-Bold.woff");
+  font-style: normal;
+  font-weight: 800;
+  font-display: fallback;
+}
+
+@font-face {
+  font-family: "MonolisaRegular";
+  src: url("/fonts/Monolisa-Regular.woff");
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
 }
