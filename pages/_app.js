@@ -1,12 +1,11 @@
-import { Box, ChakraProvider } from "@chakra-ui/react";
+import { Box, ChakraProvider, Container } from "@chakra-ui/react";
 
 import theme from "../src/Theme";
 import { Chakra } from "../src/chakra";
 import "../styles/globals.css";
-import Head from "next/head";
 import Fonts from "../styles/Theme/fonts";
 
-function MyApp({ Component, pageProps }) {
+function MyApp({ Component, pageProps, cookies }) {
   return (
     <>
       <Box
@@ -17,16 +16,18 @@ function MyApp({ Component, pageProps }) {
         }}
         marginBottom="3vh"
       />
-      <Box maxW="900px" mx="auto">
-        <Chakra cookies="cookies">
+      <Container maxW="900px" mx="auto">
+        <Chakra cookies={cookies}>
           <ChakraProvider theme={theme}>
             <Fonts />
             <Component {...pageProps} />
           </ChakraProvider>
         </Chakra>
-      </Box>
+      </Container>
     </>
   );
 }
 
 export default MyApp;
+
+export { getServerSideProps } from "../src/chakra";
