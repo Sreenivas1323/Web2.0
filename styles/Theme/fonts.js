@@ -21,6 +21,10 @@ const Fonts = () => (
         font-weight: 400;
         font-display: fallback;
       }
+
+      @font-face {
+        
+      }
     
     `}
   />
