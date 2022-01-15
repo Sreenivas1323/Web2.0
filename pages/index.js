@@ -1,22 +1,25 @@
-import { Button, Heading, Box, Center } from "@chakra-ui/react";
+import { Button, Box, Center, Container } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import CustomButton from "../src/components/Button";
-import styles from "../styles/Home.module.css";
+
+import {
+  CustomButton,
+  CustomHeading,
+} from "../src/components/CustomComponents";
 
 export default function Home() {
   return (
-    <div className={styles.container}>
-      <Box>
-        <Heading>
-          Mechatronics engineer Turned into Software Product designer, creating
-          thoughtful, intutive interfaces.
-        </Heading>
-      </Box>
-
-      <Button>Hello World</Button>
-      <CustomButton variant="primary">Hello</CustomButton>
+    <div>
+      <Container maxW="full" padding="4" my={{ base: "5", md: "10", lg: "20" }}>
+        <Box>
+          <CustomHeading>
+            Mechatronics engineer Turned into Software Product designer,
+            creating thoughtful, intuitive interfaces.
+          </CustomHeading>
+        </Box>
+        <Box></Box>
+      </Container>
     </div>
   );
 }

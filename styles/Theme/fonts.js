@@ -3,6 +3,10 @@ import { Global } from "@emotion/react";
 const Fonts = () => (
   <Global
     styles={`
+
+    *{
+      background:"black"
+    }
     
     @font-face {
         font-family: "MonolisaBold";
