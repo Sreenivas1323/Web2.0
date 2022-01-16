@@ -57,7 +57,7 @@ export default function Home() {
                 variant={"themed"}
                 href={"mailto:ssaisreenivas@gmail.com"}
               >
-                Email Me ->
+                Email Me -{">"}
               </CustomButton>
             </HStack>
           </Stack>
