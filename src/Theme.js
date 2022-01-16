@@ -1,5 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
+import { Text } from "@chakra-ui/react";
 
 const config = {
   initialColorMode: "dark",
@@ -14,9 +15,10 @@ const theme = extendTheme({
     transparent: "transparent",
     black: "#000",
     white: "#fff",
+    ash: "#949494",
     brand: {
-      50: "FC466B",
-      100: "3F5EFB",
+      50: "#FC466B",
+      100: "#3F5EFB",
     },
   },
 
@@ -24,6 +26,7 @@ const theme = extendTheme({
   fonts: {
     heading: "MonolisaBold",
     body: "MonolisaRegular",
+    Text: "MonolisaBold",
   },
   styles: {
     global: (props) => ({

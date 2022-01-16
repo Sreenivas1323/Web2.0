@@ -44,6 +44,7 @@ const Header = () => {
           left: "0",
           bottom: "0",
           background: "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
+          zIndex: "99",
         }}
         py={4}
       >

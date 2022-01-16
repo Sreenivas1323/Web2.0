@@ -4,7 +4,7 @@ import theme from "../src/Theme";
 import { Chakra } from "../src/chakra";
 import "../styles/globals.css";
 import Fonts from "../styles/Theme/fonts";
-import { TopLine } from "../src/components/CustomComponents";
+import { BottomPortion, TopLine } from "../src/components/CustomComponents";
 import Header from "../src/components/Header";
 
 function MyApp({ Component, pageProps, cookies }) {
@@ -19,6 +19,7 @@ function MyApp({ Component, pageProps, cookies }) {
             <Fonts />
             <Component {...pageProps} />
           </Container>
+          <BottomPortion />
         </ChakraProvider>
       </Chakra>
     </>

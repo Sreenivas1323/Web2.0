@@ -1,9 +1,25 @@
 import React from "react";
-import { Button, Heading, Box, Center, Container } from "@chakra-ui/react";
+import {
+  Button,
+  Heading,
+  Box,
+  Center,
+  Container,
+  Text,
+} from "@chakra-ui/react";
+import Link from "next/link";
+import { Link as ChakraLink } from "@chakra-ui/react";
 
 export const CustomHeading = ({ children }) => {
   return (
-    <Heading fontSize={{ base: "24px", md: "35px", lg: "45px" }}>
+    <Heading fontSize={{ base: "35px", md: "35px", lg: "45px" }}>
+      {children}
+    </Heading>
+  );
+};
+export const CustomSecondaryHeading = ({ children }) => {
+  return (
+    <Heading fontSize={{ base: "25px", md: "28px", lg: "30px" }}>
       {children}
     </Heading>
   );
@@ -23,10 +39,60 @@ export const TopLine = ({}) => {
   );
 };
 
-export const CustomButton = ({ children, variant, props }) => {
+export const BottomPortion = ({}) => {
+  return (
+    <Box
+      style={{
+        background: "black",
+        padding: "20px",
+      }}
+      display={{ base: "none", md: "block" }}
+      marginBottom="3vh"
+      width="full"
+    />
+  );
+};
+
+export const CustomChakraLink = ({ children, ...props }) => {
+  return (
+    <ChakraLink
+      {...props}
+      color={"white"}
+      _hover={{
+        bgGradient: "linear(to-l, brand.50, brand.100)",
+        bgClip: "text",
+        fontWeight: "700",
+        color: "brand.100",
+      }}
+      transition={"0.2s ease-in-out"}
+    >
+      {children}
+    </ChakraLink>
+  );
+};
+
+export const CustomText = ({ children }, props) => {
+  return (
+    <Text {...props} fontFamily={"MonolisaBold"} color={"ash"}>
+      {children}
+    </Text>
+  );
+};
+
+export const CustomButton = ({ children, variant, props, href }) => {
   switch (variant.toLowerCase()) {
     case "default":
-      return <Button {...props}>{children}</Button>;
+      return (
+        <Button
+          {...props}
+          color={"ash"}
+          _hover={{
+            color: "white",
+          }}
+        >
+          {children}
+        </Button>
+      );
 
     case "med":
       return (
@@ -45,15 +111,19 @@ export const CustomButton = ({ children, variant, props }) => {
       );
     case "themed":
       return (
-        <Button
-          style={{
-            background:
-              "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
-          }}
-          size="sm"
-        >
-          {children}
-        </Button>
+        <Link href={href}>
+          <Button
+            {...props}
+            _hover={{ transform: "translateY(-0.25rem)" }}
+            style={{
+              background:
+                "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
+            }}
+            size="sm"
+          >
+            {children}
+          </Button>
+        </Link>
       );
 
     case "primary":
