@@ -5,7 +5,7 @@ import { CustomButton } from "./CustomComponents";
 
 const FavIcon = (props) => (
   <Link href="/">
-    <a href="/">
+    <a>
       <Icon
         width="104"
         height="22"
