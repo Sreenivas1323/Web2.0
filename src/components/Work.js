@@ -47,10 +47,9 @@ export function Work({ Name, desc, images, web, link }) {
           justifyContent={{ base: "center", md: "initial" }}
         >
           {images.map(({ src, key, words }) => (
-            <Box borderRadius={"10px"} overflow="hidden">
+            <Box key={key} borderRadius={"10px"} overflow="hidden">
               <Center>
                 <Image
-                  key={key}
                   src={src}
                   width={450}
                   height={222}
