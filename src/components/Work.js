@@ -27,7 +27,7 @@ export function Work({ Name, desc, images, web, link }) {
               <CustomText key={key}>{data}</CustomText>
             ))}
             {link ? (
-              <Link href={link}>
+              <Link href={link} passHref>
                 <a target={"_blank"}>
                   <CustomButton variant="sm-hover">
                     {web} -{">"}

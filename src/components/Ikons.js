@@ -13,7 +13,7 @@ export const CustomIkonButton = ({ children, variant, props }) => {
   switch (variant.toLowerCase()) {
     case "twitter":
       return (
-        <Link href="https://twitter.com/ssaisreenivas">
+        <Link href="https://twitter.com/ssaisreenivas" passHref>
           <a target={"_blank"}>
             <Button
               {...props}
@@ -31,7 +31,7 @@ export const CustomIkonButton = ({ children, variant, props }) => {
       );
     case "dribbble":
       return (
-        <Link href={"https://dribbble.com/sonthena"}>
+        <Link href={"https://dribbble.com/sonthena"} passHref>
           <a target={"_blank"}>
             <Button
               {...props}
@@ -49,7 +49,7 @@ export const CustomIkonButton = ({ children, variant, props }) => {
       );
     case "linkedin":
       return (
-        <Link href={"https://www.linkedin.com/in/ssaisreenivas/"}>
+        <Link href={"https://www.linkedin.com/in/ssaisreenivas/"} passHref>
           <a target={"_blank"}>
             <Button
               {...props}
@@ -67,7 +67,7 @@ export const CustomIkonButton = ({ children, variant, props }) => {
       );
     case "behance":
       return (
-        <Link href={"http://be.net/ssaisreenivas"}>
+        <Link href={"http://be.net/ssaisreenivas"} passHref>
           <a target={"_blank"}>
             <Button
               {...props}
@@ -85,7 +85,7 @@ export const CustomIkonButton = ({ children, variant, props }) => {
       );
     case "github":
       return (
-        <Link href={"https://github.com/Sreenivas1323"}>
+        <Link href={"https://github.com/Sreenivas1323"} passHref>
           <a target={"_blank"}>
             <Button
               {...props}

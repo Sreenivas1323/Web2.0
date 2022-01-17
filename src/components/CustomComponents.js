@@ -128,7 +128,7 @@ export const CustomButton = ({ children, variant, props, href }) => {
       );
     case "themed":
       return (
-        <Link href={href}>
+        <Link href={href} passHref>
           <Button
             {...props}
             _hover={{ transform: "translateY(-0.25rem)" }}
