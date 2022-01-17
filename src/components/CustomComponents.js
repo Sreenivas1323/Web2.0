@@ -17,9 +17,17 @@ export const CustomHeading = ({ children }) => {
     </Heading>
   );
 };
-export const CustomSecondaryHeading = ({ children }) => {
+export const CustomSecondaryHeading = ({ children, ...props }) => {
   return (
-    <Heading fontSize={{ base: "25px", md: "28px", lg: "30px" }}>
+    <Heading {...props} fontSize={{ base: "25px", md: "28px", lg: "30px" }}>
+      {children}
+    </Heading>
+  );
+};
+
+export const CustomTeritoryHeading = ({ children, ...props }) => {
+  return (
+    <Heading {...props} fontSize={{ base: "18px", md: "20px", lg: "22px" }}>
       {children}
     </Heading>
   );
@@ -41,15 +49,7 @@ export const TopLine = ({}) => {
 
 export const BottomPortion = ({}) => {
   return (
-    <Box
-      style={{
-        background: "black",
-        padding: "20px",
-      }}
-      display={{ base: "none", md: "block" }}
-      marginBottom="3vh"
-      width="full"
-    />
+    <Box height="60px" display={{ base: "block", md: "block" }} width="full" />
   );
 };
 
@@ -97,6 +97,23 @@ export const CustomButton = ({ children, variant, props, href }) => {
     case "med":
       return (
         <Button {...props} size="md" fontSize={"12px"}>
+          {" "}
+          {children}
+        </Button>
+      );
+
+    case "sm-hover":
+      return (
+        <Button
+          _hover={{
+            transform: "translateY(-0.25rem)",
+            background:
+              "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
+          }}
+          {...props}
+          size="sm"
+          fontSize={"12px"}
+        >
           {" "}
           {children}
         </Button>

@@ -17,6 +17,7 @@ import {
   CustomChakraLink,
   CustomHeading,
   CustomSecondaryHeading,
+  CustomTeritoryHeading,
   CustomText,
 } from "../src/components/CustomComponents";
 import { CustomIkonButton } from "../src/components/Ikons";
@@ -83,24 +84,38 @@ export default function Home() {
         </CustomText>
       </Container>
 
-      {/* <Divider borderTop={"2px dashed"} my={"10"} />
+      <Divider borderTop={"2px dashed"} my={"10"} />
 
       <Container maxW="full">
-        <CustomSecondaryHeading>Recent Work</CustomSecondaryHeading>
+        <CustomTeritoryHeading>Recent Work</CustomTeritoryHeading>
         <CustomText>Here are some of my most recent projects.</CustomText>
       </Container>
       <Container maxW="full">
         <Work
           Name="Datametrix"
-          desc={
-            "My previous full-time role, where I led the design team to work on modern solutions for data presentation."
-          }
+          web="datametrix.io"
+          link="https://datametrix-web.vercel.app"
+          desc={[
+            {
+              data: "My previous full-time role, where I led the design team to work on modern solutions for data presentation.",
+            },
+            {
+              data: "I worked on the brand identity, website and our web application. I worked the integration of the web application to the website, using next js, and styled components. ",
+            },
+          ]}
           images={[
-            { src: "/images/dmetrix1.png", key: "1" },
-            { key: "2", src: "images/dmetrix1.png" },
+            {
+              src: "/images/dm1.png",
+              words: "asdasdasdasdasdasda",
+            },
+
+            {
+              src: "/images/dm2.png",
+              words: "asdasdasdasdasdasda",
+            },
           ]}
         />
-      </Container> */}
+      </Container>
     </div>
   );
 }

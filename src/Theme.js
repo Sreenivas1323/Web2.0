@@ -13,7 +13,7 @@ const theme = extendTheme({
   config,
   colors: {
     transparent: "transparent",
-    black: "#000",
+    black: "#0B0B0B",
     white: "#fff",
     ash: "#949494",
     brand: {
