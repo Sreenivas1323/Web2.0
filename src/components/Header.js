@@ -4,7 +4,7 @@ import React from "react";
 import { CustomButton } from "./CustomComponents";
 
 const FavIcon = (props) => (
-  <Link href="/" passHref>
+  <Link href="/">
     <a href="/">
       <Icon
         width="104"
