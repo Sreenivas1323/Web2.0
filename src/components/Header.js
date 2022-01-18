@@ -34,12 +34,12 @@ const Links = () => {
   return (
     <Stack direction={{ base: "row", med: "column" }} spacing={"20"}>
       <Link href="/about" passhref>
-        <a href="/about">
+        <a>
           <CustomButton variant="ghost">About</CustomButton>
         </a>
       </Link>
       <Link href="/blog" passhref>
-        <a href="/blog">
+        <a>
           <CustomButton variant="ghost">Blog</CustomButton>
         </a>
       </Link>
