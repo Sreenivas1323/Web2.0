@@ -7,6 +7,7 @@ import {
   Stack,
   Text,
   Divider,
+  VStack,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Image from "next/image";
@@ -22,6 +23,7 @@ import {
 } from "../src/components/CustomComponents";
 import { CustomIkonButton } from "../src/components/Ikons";
 import { Work } from "../src/components/Work";
+import { Data } from "../src/Data";
 
 export default function Home() {
   return (
@@ -91,30 +93,16 @@ export default function Home() {
         <CustomText>Here are some of my most recent projects.</CustomText>
       </Container>
       <Container maxW="full">
-        <Work
-          Name="Datametrix"
-          web="datametrix.io"
-          link="https://datametrix-web.vercel.app"
-          desc={[
-            {
-              data: "My previous full-time role, where I led the design team to work on modern solutions for data presentation.",
-            },
-            {
-              data: "I worked on the brand identity, website and our web application. I worked the integration of the web application to the website, using next js, and styled components. ",
-            },
-          ]}
-          images={[
-            {
-              src: "/images/dm1.png",
-              words: "asdasdasdasdasdasda",
-            },
-
-            {
-              src: "/images/dm2.png",
-              words: "asdasdasdasdasdasda",
-            },
-          ]}
-        />
+        {Data.map(({ Name, web, link, desc, images }, index) => (
+          <Work
+            Name={Name}
+            web={web}
+            link={link}
+            desc={desc}
+            images={images}
+            key={index}
+          />
+        ))}
       </Container>
     </div>
   );

@@ -23,8 +23,8 @@ export function Work({ Name, desc, images, web, link }) {
             maxW={{ base: "full", md: "500px" }}
           >
             <CustomSecondaryHeading>{Name}</CustomSecondaryHeading>
-            {desc.map(({ data, key }) => (
-              <CustomText key={key}>{data}</CustomText>
+            {desc.map(({ data }, index) => (
+              <CustomText key={index}>{data}</CustomText>
             ))}
             {link ? (
               <Link href={link} passHref>
@@ -46,8 +46,8 @@ export function Work({ Name, desc, images, web, link }) {
           spacing="14px"
           justifyContent={{ base: "center", md: "initial" }}
         >
-          {images.map(({ src, key, words }) => (
-            <Box key={key} borderRadius={"10px"} overflow="hidden">
+          {images.map(({ src, words }, index) => (
+            <Box key={index} borderRadius={"10px"} overflow="hidden">
               <Center>
                 <Image
                   src={src}

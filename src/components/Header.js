@@ -1,4 +1,12 @@
-import { Center, Container, Flex, Icon, Spacer } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  Flex,
+  HStack,
+  Icon,
+  Spacer,
+  Stack,
+} from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 import { CustomButton } from "./CustomComponents";
@@ -22,20 +30,46 @@ const FavIcon = (props) => (
   </Link>
 );
 
+const Links = () => {
+  return (
+    <Stack direction={{ base: "row", med: "column" }} spacing={"20"}>
+      <Link href="/about" passhref>
+        <a href="/about">
+          <CustomButton variant="ghost">About</CustomButton>
+        </a>
+      </Link>
+      <Link href="/blog" passhref>
+        <a href="/blog">
+          <CustomButton variant="ghost">Blog</CustomButton>
+        </a>
+      </Link>
+      {/* <Link href="/Projects" passHref>
+    <a href="/Projects">
+      <CustomButton variant="ghost">Projects</CustomButton>
+    </a>
+  </Link> */}
+    </Stack>
+  );
+};
+
 const Header = () => {
   return (
     <>
-      <Container maxW="full" display={{ base: "none", md: "block" }}>
+      <Container
+        maxW="full"
+        display={{ base: "none", md: "block" }}
+        position={"sticky"}
+        zIndex={"10"}
+        top="0"
+        style={{ backdropFilter: "saturate(180%) blur(20px)" }}
+        py="4"
+      >
         <Flex>
           <CustomButton variant="ghost">
             <FavIcon />
           </CustomButton>
           <Spacer />
-          {/* <Link href="/about">
-            <a href="/about" passhref>
-              <CustomButton variant="med">About</CustomButton>
-            </a>
-          </Link> */}
+          <Links />
         </Flex>
       </Container>
 
@@ -58,9 +92,7 @@ const Header = () => {
         py={4}
       >
         <Center justifyContent="space-evenly">
-          {/* <CustomButton variant="med">About</CustomButton>
-          <CustomButton variant="med">About</CustomButton>
-          <CustomButton variant="med">About</CustomButton> */}
+          <Links />
         </Center>
       </Container>
     </>
