@@ -33,7 +33,7 @@ const FavIcon = (props) => (
 const Links = () => {
   return (
     <Stack direction={{ base: "row", med: "column" }} spacing={"20"}>
-      <Link href="/about" passhref>
+      {/* <Link href="/about" passhref>
         <a>
           <CustomButton variant="ghost">About</CustomButton>
         </a>
@@ -42,7 +42,7 @@ const Links = () => {
         <a>
           <CustomButton variant="ghost">Blog</CustomButton>
         </a>
-      </Link>
+      </Link> */}
       {/* <Link href="/Projects" passHref>
     <a href="/Projects">
       <CustomButton variant="ghost">Projects</CustomButton>
