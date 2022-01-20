@@ -76,7 +76,7 @@ export default function Home() {
       <Container maxW="full">
         <CustomText color={"ash"}>
           I’ve just joined{" "}
-          <CustomChakraLink href="https://chakra-ui.com" isExternal>
+          <CustomChakraLink href="http://leafcraftstudios.com/" isExternal>
             LeafCraft Studios
           </CustomChakraLink>{" "}
           where I’ll be working on some of the best user based products. In the
