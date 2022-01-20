@@ -35,7 +35,7 @@ export default function Home() {
       >
         <Box>
           <CustomHeading>
-            Mechatronics engineer Turned into Software Product designer,
+            Mechatronics engineer Turned into Software Product enthusiast,
             creating thoughtful, intuitive interfaces.
           </CustomHeading>
         </Box>
