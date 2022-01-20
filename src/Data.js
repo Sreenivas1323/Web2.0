@@ -31,12 +31,12 @@ export const Data = [
 
     images: [
       {
-        src: "/images/dm1.png",
+        src: "/images/Dm1.png",
         words: "asdasdasdasdasdasda",
       },
 
       {
-        src: "/images/dm2.jpg",
+        src: "/images/Dm2.jpg",
         words: "asdasdasdasdasdasda",
       },
     ],
