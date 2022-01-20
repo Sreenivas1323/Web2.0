@@ -93,13 +93,14 @@ export default function Home() {
         <CustomText>Here are some of my most recent projects.</CustomText>
       </Container>
       <Container maxW="full">
-        {Data.map(({ Name, web, link, desc, images }, index) => (
+        {Data.map(({ Name, web, link, desc, images, tags }, index) => (
           <Work
             Name={Name}
             web={web}
             link={link}
             desc={desc}
             images={images}
+            tags={tags}
             key={index}
           />
         ))}

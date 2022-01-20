@@ -1,4 +1,4 @@
-import { Box, Center, Stack, VStack } from "@chakra-ui/react";
+import { Badge, Box, Center, HStack, Stack, VStack } from "@chakra-ui/react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -8,13 +8,14 @@ import {
   CustomText,
 } from "./CustomComponents";
 
-export function Work({ Name, desc, images, web, link }) {
+export function Work({ Name, desc, images, web, link, tags }) {
   return (
     <>
       <Stack
         my="10"
         direction={{ base: "column", md: "row" }}
         justifyContent={{ base: "space-between" }}
+        alignItems={"center"}
       >
         <Box marginY="auto">
           <VStack
@@ -22,7 +23,14 @@ export function Work({ Name, desc, images, web, link }) {
             alignItems={"baseline"}
             maxW={{ base: "full", md: "500px" }}
           >
-            <CustomSecondaryHeading>{Name}</CustomSecondaryHeading>
+            <CustomSecondaryHeading>{Name}</CustomSecondaryHeading>{" "}
+            <HStack spacing={"5px"} style={{ marginTop: "10px" }}>
+              {tags.map(({ name, color }, index) => (
+                <Badge colorScheme={color} key={index}>
+                  {name}
+                </Badge>
+              ))}
+            </HStack>
             {desc.map(({ data }, index) => (
               <CustomText key={index}>{data}</CustomText>
             ))}
@@ -44,6 +52,7 @@ export function Work({ Name, desc, images, web, link }) {
           my="8px"
           direction="column"
           spacing="14px"
+          paddingTop={{ base: "10px", md: "0px" }}
           justifyContent={{ base: "center", md: "initial" }}
         >
           {images.map(({ src, words }, index) => (
