@@ -35,8 +35,7 @@ export default function Home() {
       >
         <Box>
           <CustomHeading>
-            Mechatronics engineer Turned into Software Product enthusiast,
-            creating thoughtful, intuitive interfaces.
+          Mechatronics engineer to product developer and AI enthusiast, I specialize in creating intuitive, user-friendly interfaces.
           </CustomHeading>
         </Box>
         <Box>
