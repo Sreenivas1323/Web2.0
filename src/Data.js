@@ -2,7 +2,7 @@ export const Data = [
   {
     Name: "Intripid",
     web: "intripid.com",
-    link: "https://intripid.com/",
+    link: "https://dev.intripid.co/",
     tags: [
       {
         name: "Tech Lead",
