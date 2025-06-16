@@ -1,10 +1,7 @@
-import React from "react";
 import {
   Button,
   Heading,
   Box,
-  Center,
-  Container,
   Text,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -128,7 +125,7 @@ export const CustomButton = ({ children, variant, props, href }) => {
       );
     case "themed":
       return (
-        <Link href={href} passHref>
+        <Link href={href}>
           <Button
             {...props}
             _hover={{ transform: "translateY(-0.25rem)" }}
