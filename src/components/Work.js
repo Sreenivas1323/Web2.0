@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   CustomButton,
-  CustomHeading,
   CustomSecondaryHeading,
   CustomText,
 } from "./CustomComponents";
@@ -35,12 +34,10 @@ export function Work({ Name, desc, images, web, link, tags }) {
               <CustomText key={index}>{data}</CustomText>
             ))}
             {link ? (
-              <Link href={link} passHref>
-                <a target={"_blank"}>
-                  <CustomButton variant="sm-hover">
-                    {web} -{">"}
-                  </CustomButton>
-                </a>
+              <Link href={link} target={"_blank"}>
+                <CustomButton variant="sm-hover">
+                  {web} -{">"}
+                </CustomButton>
               </Link>
             ) : (
               <></>
@@ -65,6 +62,7 @@ export function Work({ Name, desc, images, web, link, tags }) {
                   placeholder="blur"
                   layout="intrinsic"
                   blurDataURL={src}
+                  alt={words || Name}
                 />
               </Center>
             </Box>

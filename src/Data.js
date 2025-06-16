@@ -1,5 +1,37 @@
 export const Data = [
   {
+    Name: "Intripid",
+    web: "intripid.com",
+    link: "https://intripid.com/",
+    tags: [
+      {
+        name: "Tech Lead",
+        color: "purple",
+      },
+      {
+        name: "Frontend Development",
+        color: "teal",
+      },
+      {
+        name: "AI Flows & Interactions",
+        color: "blue",
+      },
+    ],
+
+    desc: [
+      {
+        data: "Currently serving as Tech Lead at Intripid since October 2024, building an end-to-end future of travel platform. Focusing on frontend development, user interfaces, interactions, and AI flows to make travel easier and more intuitive.",
+      },
+    ],
+
+    images: [
+      {
+        src: "/images/Intripid.png",
+        words: "Intripid Tech Lead",
+      },
+    ],
+  },
+  {
     Name: "LeafCraft Studios",
     web: "leafcraftstudios.com",
     link: "http://leafcraftstudios.com/",
@@ -16,14 +48,18 @@ export const Data = [
 
     desc: [
       {
-        data: "I head the design and development of outstanding software products with my team in my current full-time position. I work on our product while hiring an incredible design team to build the future of financial wellness.",
+        data: "Previously worked on design and development of outstanding software products, focusing on financial wellness solutions and building design teams.",
       },
     ],
 
     images: [
       {
-        src: "/images/LeafCraft.png",
-        words: "asdasdasdasdasdasda",
+        src: "/images/Lcs.png",
+        words: "LeafCraft Studios",
+      },
+      {
+        src: "/images/Lcs2.png",
+        words: "LeafCraft App",
       },
     ],
   },
