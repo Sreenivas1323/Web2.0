@@ -14,13 +14,14 @@ export function Work({ Name, desc, images, web, link, tags }) {
         my="10"
         direction={{ base: "column", md: "row" }}
         justifyContent={{ base: "space-between" }}
-        alignItems={"center"}
+        alignItems={{ base: "center", md: "flex-start" }}
+        w="full"
       >
-        <Box marginY="auto">
+        <Box marginY="auto" flex="1">
           <VStack
             spacing="5"
             alignItems={"baseline"}
-            maxW={{ base: "full", md: "500px" }}
+            maxW={{ base: "full", md: "lg", lg: "xl" }}
           >
             <CustomSecondaryHeading>{Name}</CustomSecondaryHeading>{" "}
             <HStack spacing={"5px"} style={{ marginTop: "10px" }}>
