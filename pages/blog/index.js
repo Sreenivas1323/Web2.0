@@ -40,40 +40,43 @@ const BlogCard = ({ post }) => {
         role="group"
       >
         <VStack align="start" spacing={5}>
-          <HStack spacing={2} wrap="wrap">
+          <HStack spacing={4}>
             <Tag
               size="sm"
               bgGradient="linear(to-r, brand.50, brand.100)"
               color="white"
               borderRadius="full"
               px={3}
+              fontSize="10px"
+              fontWeight="bold"
             >
-              Latest
+              ARTICLE
             </Tag>
-            <Text fontSize="xs" color="ash" fontWeight="bold">
+            <Text fontSize="10px" color="ash" fontWeight="bold" letterSpacing="1px">
               {new Date(post.frontmatter.date).toLocaleDateString('en-US', { 
                 month: 'long', 
                 day: 'numeric', 
                 year: 'numeric' 
-              })}
+              }).toUpperCase()}
             </Text>
           </HStack>
           
-          <VStack align="start" spacing={2}>
+          <VStack align="start" spacing={3}>
             <CustomHeading 
               fontSize={{ base: "xl", md: "2xl" }} 
               _groupHover={{ color: "brand.50" }}
               transition="0.2s"
+              lineHeight="1.3"
             >
               {post.frontmatter.title}
             </CustomHeading>
-            <CustomText noOfLines={3} fontSize="sm">
+            <CustomText noOfLines={3} fontSize="sm" lineHeight="1.6" fontFamily="MonolisaRegular">
               {post.frontmatter.description}
             </CustomText>
           </VStack>
 
-          <Flex align="center" color="brand.100" fontWeight="bold" fontSize="xs">
-            READ MORE <Box as="span" ml={2} transition="0.2s" _groupHover={{ ml: 4 }}>→</Box>
+          <Flex align="center" color="brand.100" fontWeight="bold" fontSize="10px" letterSpacing="1px">
+            READ STORY <Box as="span" ml={2} transition="0.2s" _groupHover={{ ml: 4 }}>→</Box>
           </Flex>
         </VStack>
       </Box>
@@ -89,22 +92,24 @@ function BlogIndex({ posts }) {
         <meta name="description" content="Technical deep dives and reflections on product engineering by Sreenivas Sonthena." />
       </Head>
 
-      <Container maxW="6xl" py={{ base: 10, md: 20 }}>
-        <VStack spacing={12} align="stretch">
-          <VStack align="start" spacing={4}>
+      <Container maxW="6xl" py={{ base: 10, md: 24 }}>
+        <VStack spacing={20} align="stretch">
+          <VStack align="start" spacing={6}>
             <Box
               w="40px"
               h="6px"
               bgGradient="linear(to-r, brand.50, brand.100)"
               borderRadius="full"
             />
-            <CustomHeading fontSize={{ base: "4xl", md: "6xl" }}>
-              Writing & <br /> Reflections
-            </CustomHeading>
-            <CustomText maxW="2xl" fontSize="lg">
-              Notes on building products, engineering leadership, and the 
-              ever-evolving landscape of AI.
-            </CustomText>
+            <VStack align="start" spacing={2}>
+              <CustomHeading fontSize={{ base: "4xl", md: "6xl" }} letterSpacing="-2px">
+                Writing & <br /> Reflections
+              </CustomHeading>
+              <CustomText maxW="2xl" fontSize="lg" fontFamily="MonolisaRegular">
+                Notes on building products, engineering leadership, and the 
+                ever-evolving landscape of AI.
+              </CustomText>
+            </VStack>
           </VStack>
 
           <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
