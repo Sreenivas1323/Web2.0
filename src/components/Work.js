@@ -24,9 +24,9 @@ export function Work({ Name, desc, images, web, link, tags }) {
             maxW={{ base: "full", md: "lg", lg: "xl" }}
           >
             <CustomSecondaryHeading>{Name}</CustomSecondaryHeading>{" "}
-            <HStack spacing={"5px"} style={{ marginTop: "10px" }}>
+            <HStack spacing={"5px"} style={{ marginTop: "10px" }} wrap="wrap">
               {tags.map(({ name, color }, index) => (
-                <Badge colorScheme={color} key={index}>
+                <Badge colorScheme={color} key={index} mb="2">
                   {name}
                 </Badge>
               ))}
