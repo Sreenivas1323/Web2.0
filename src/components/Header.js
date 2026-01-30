@@ -27,24 +27,18 @@ const FavIcon = (props) => (
   </Link>
 );
 
-const Links = () => {
+const Links = ({ isMobile }) => {
   return (
-    <Stack direction={{ base: "row", med: "column" }} spacing={"20"}>
-      {/* <Link href="/about" passhref>
-        <a>
-          <CustomButton variant="ghost">About</CustomButton>
-        </a>
+    <Stack direction={"row"} spacing={isMobile ? "4" : "20"}>
+      <Link href="/" passHref>
+        <CustomButton variant="ghost" color={isMobile ? "white" : "ash"}>Home</CustomButton>
       </Link>
-      <Link href="/blog" passhref>
-        <a>
-          <CustomButton variant="ghost">Blog</CustomButton>
-        </a>
-      </Link> */}
-      {/* <Link href="/Projects" passHref>
-    <a href="/Projects">
-      <CustomButton variant="ghost">Projects</CustomButton>
-    </a>
-  </Link> */}
+      <Link href="/about" passHref>
+        <CustomButton variant="ghost" color={isMobile ? "white" : "ash"}>About</CustomButton>
+      </Link>
+      <Link href="/blog" passHref>
+        <CustomButton variant="ghost" color={isMobile ? "white" : "ash"}>Blog</CustomButton>
+      </Link>
     </Stack>
   );
 };
@@ -66,7 +60,7 @@ const Header = () => {
             <FavIcon />
           </CustomButton>
           <Spacer />
-          <Links />
+          <Links isMobile={false} />
         </Flex>
       </Container>
 
@@ -86,10 +80,10 @@ const Header = () => {
           background: "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
           zIndex: "99",
         }}
-        py={4}
+        py={2}
       >
-        <Center justifyContent="space-evenly">
-          <Links />
+        <Center>
+          <Links isMobile={true} />
         </Center>
       </Container>
     </>
