@@ -7,9 +7,9 @@ import {
 import Link from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 
-export const CustomHeading = ({ children }) => {
+export const CustomHeading = ({ children, ...props }) => {
   return (
-    <Heading fontSize={{ base: "35px", md: "35px", lg: "45px" }}>
+    <Heading fontSize={{ base: "35px", md: "35px", lg: "45px" }} {...props}>
       {children}
     </Heading>
   );
@@ -68,15 +68,45 @@ export const CustomChakraLink = ({ children, ...props }) => {
   );
 };
 
-export const CustomText = ({ children }, props) => {
+export const CustomText = ({ children, ...props }) => {
   return (
-    <Text {...props} fontFamily={"MonolisaBold"} color={"ash"}>
+    <Text fontFamily={"MonolisaBold"} color={"ash"} {...props}>
       {children}
     </Text>
   );
 };
 
-export const CustomButton = ({ children, variant, props, href }) => {
+export const GradientText = ({ children, ...props }) => {
+  return (
+    <Box
+      as="span"
+      bgGradient="linear(to-r, brand.50, brand.100)"
+      bgClip="text"
+      {...props}
+    >
+      {children}
+    </Box>
+  );
+};
+
+export const SectionLabel = ({ children, ...props }) => {
+  return (
+    <Text
+      fontSize="xs"
+      fontWeight="bold"
+      textTransform="uppercase"
+      letterSpacing="3px"
+      bgGradient="linear(to-r, brand.50, brand.100)"
+      bgClip="text"
+      fontFamily="MonolisaBold"
+      {...props}
+    >
+      {children}
+    </Text>
+  );
+};
+
+export const CustomButton = ({ children, variant, href, ...props }) => {
   switch (variant.toLowerCase()) {
     case "default":
       return (
@@ -133,6 +163,27 @@ export const CustomButton = ({ children, variant, props, href }) => {
               background:
                 "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
             }}
+            size="sm"
+          >
+            {children}
+          </Button>
+        </Link>
+      );
+
+    case "outline-gradient":
+      return (
+        <Link href={href || "#"}>
+          <Button
+            {...props}
+            variant="outline"
+            borderColor="whiteAlpha.300"
+            color="white"
+            _hover={{
+              borderColor: "brand.50",
+              color: "brand.50",
+              transform: "translateY(-0.25rem)",
+            }}
+            transition="all 0.2s"
             size="sm"
           >
             {children}

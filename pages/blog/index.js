@@ -88,8 +88,9 @@ function BlogIndex({ posts }) {
   return (
     <>
       <Head>
-        <title>Blog - Veerabhadra Sai Sreenivas Sonthena</title>
-        <meta name="description" content="Technical deep dives and reflections on product engineering by Sreenivas Sonthena." />
+        <title>Writing — Sreenivas Sonthena</title>
+        <meta name="description" content="Notes on building products, engineering leadership, and the ever-evolving landscape of AI. By Sreenivas Sonthena." />
+        <meta name="twitter:creator" content="@sreeeeenivas" />
       </Head>
 
       <Container maxW="6xl" py={{ base: 10, md: 24 }}>
