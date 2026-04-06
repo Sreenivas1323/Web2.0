@@ -7,16 +7,38 @@ import {
 import Link from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 
+// --- Type Scale ---
+// display: 48-52px  — hero headings
+// h1: 36-40px       — page headings
+// h2: 24-28px       — section headings
+// h3: 18-20px       — sub-section headings
+// body: 15px        — paragraph text
+// sm: 13px          — small text, captions
+// label: 11px       — labels, tags, uppercase markers
+
 export const CustomHeading = ({ children, ...props }) => {
   return (
-    <Heading fontSize={{ base: "35px", md: "35px", lg: "45px" }} {...props}>
+    <Heading
+      fontSize={{ base: "36px", md: "36px", lg: "40px" }}
+      fontFamily="MonolisaBold"
+      color="white"
+      letterSpacing="-0.5px"
+      {...props}
+    >
       {children}
     </Heading>
   );
 };
+
 export const CustomSecondaryHeading = ({ children, ...props }) => {
   return (
-    <Heading {...props} fontSize={{ base: "25px", md: "28px", lg: "30px" }}>
+    <Heading
+      fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+      fontFamily="MonolisaBold"
+      color="white"
+      letterSpacing="-0.3px"
+      {...props}
+    >
       {children}
     </Heading>
   );
@@ -24,7 +46,12 @@ export const CustomSecondaryHeading = ({ children, ...props }) => {
 
 export const CustomTeritoryHeading = ({ children, ...props }) => {
   return (
-    <Heading {...props} fontSize={{ base: "18px", md: "20px", lg: "22px" }}>
+    <Heading
+      fontSize={{ base: "18px", md: "19px", lg: "20px" }}
+      fontFamily="MonolisaBold"
+      color="white"
+      {...props}
+    >
       {children}
     </Heading>
   );
@@ -33,12 +60,9 @@ export const CustomTeritoryHeading = ({ children, ...props }) => {
 export const TopLine = ({}) => {
   return (
     <Box
-      style={{
-        background: "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
-        height: "0.5rem",
-      }}
+      bg="white"
+      height="2px"
       display={{ base: "none", md: "block" }}
-      marginBottom="3vh"
       width="full"
     />
   );
@@ -54,14 +78,14 @@ export const CustomChakraLink = ({ children, ...props }) => {
   return (
     <ChakraLink
       {...props}
-      color={"white"}
+      color="white"
+      textDecoration="underline"
+      textDecorationColor="whiteAlpha.400"
+      textUnderlineOffset="3px"
       _hover={{
-        bgGradient: "linear(to-l, brand.50, brand.100)",
-        bgClip: "text",
-        fontWeight: "700",
-        color: "brand.100",
+        textDecorationColor: "white",
       }}
-      transition={"0.2s ease-in-out"}
+      transition="0.2s ease-in-out"
     >
       {children}
     </ChakraLink>
@@ -70,18 +94,17 @@ export const CustomChakraLink = ({ children, ...props }) => {
 
 export const CustomText = ({ children, ...props }) => {
   return (
-    <Text fontFamily={"MonolisaBold"} color={"ash"} {...props}>
+    <Text fontFamily="MonolisaRegular" color="ash" fontSize="15px" {...props}>
       {children}
     </Text>
   );
 };
 
-export const GradientText = ({ children, ...props }) => {
+export const AccentText = ({ children, ...props }) => {
   return (
     <Box
       as="span"
-      bgGradient="linear(to-r, brand.50, brand.100)"
-      bgClip="text"
+      color="white"
       {...props}
     >
       {children}
@@ -92,12 +115,11 @@ export const GradientText = ({ children, ...props }) => {
 export const SectionLabel = ({ children, ...props }) => {
   return (
     <Text
-      fontSize="xs"
+      fontSize="11px"
       fontWeight="bold"
       textTransform="uppercase"
       letterSpacing="3px"
-      bgGradient="linear(to-r, brand.50, brand.100)"
-      bgClip="text"
+      color="dim"
       fontFamily="MonolisaBold"
       {...props}
     >
@@ -112,10 +134,8 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
       return (
         <Button
           {...props}
-          color={"ash"}
-          _hover={{
-            color: "white",
-          }}
+          color="ash"
+          _hover={{ color: "white" }}
         >
           {children}
         </Button>
@@ -123,8 +143,7 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
 
     case "med":
       return (
-        <Button {...props} size="md" fontSize={"12px"}>
-          {" "}
+        <Button {...props} size="md" fontSize="13px">
           {children}
         </Button>
       );
@@ -133,37 +152,38 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
       return (
         <Button
           _hover={{
-            transform: "translateY(-0.25rem)",
-            background:
-              "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
+            transform: "translateY(-2px)",
+            bg: "white",
+            color: "black",
           }}
           {...props}
           size="sm"
-          fontSize={"12px"}
+          fontSize="12px"
+          bg="whiteAlpha.100"
+          color="white"
         >
-          {" "}
           {children}
         </Button>
       );
 
     case "ghost":
       return (
-        <Button {...props} variant={"ghost"} size="md" fontSize={"12px"}>
-          {" "}
+        <Button {...props} variant="ghost" size="md" fontSize="13px">
           {children}
         </Button>
       );
+
     case "themed":
       return (
         <Link href={href}>
           <Button
             {...props}
-            _hover={{ transform: "translateY(-0.25rem)" }}
-            style={{
-              background:
-                "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
-            }}
+            _hover={{ transform: "translateY(-2px)", opacity: 0.85 }}
+            bg="white"
+            color="black"
             size="sm"
+            fontSize="13px"
+            fontFamily="MonolisaBold"
           >
             {children}
           </Button>
@@ -179,12 +199,13 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
             borderColor="whiteAlpha.300"
             color="white"
             _hover={{
-              borderColor: "brand.50",
-              color: "brand.50",
-              transform: "translateY(-0.25rem)",
+              borderColor: "white",
+              transform: "translateY(-2px)",
             }}
             transition="all 0.2s"
             size="sm"
+            fontSize="13px"
+            fontFamily="MonolisaBold"
           >
             {children}
           </Button>

@@ -2,82 +2,73 @@ import {
   Box,
   Container,
   VStack,
-  HStack,
-  Tag,
   SimpleGrid,
-  useColorModeValue,
-  Flex,
   Text,
 } from "@chakra-ui/react";
 import Head from "next/head";
 import Link from "next/link";
 import {
-  CustomHeading,
   CustomText,
+  SectionLabel,
 } from "../../src/components/CustomComponents";
 import { getAllBlogPosts } from "../../src/lib/blog";
 
 const BlogCard = ({ post }) => {
-  const bg = useColorModeValue("white", "#111");
-  const borderColor = useColorModeValue("gray.200", "whiteAlpha.100");
-
   return (
-    <Link href={`/blog/${post.slug}`} passHref style={{ textDecoration: 'none' }}>
+    <Link href={`/blog/${post.slug}`} passHref style={{ textDecoration: "none" }}>
       <Box
-        p={8}
-        bg={bg}
+        p={7}
         border="1px solid"
-        borderColor={borderColor}
-        borderRadius="24px"
-        transition="all 0.3s cubic-bezier(.08,.52,.52,1)"
+        borderColor="whiteAlpha.100"
+        borderRadius="12px"
+        transition="all 0.3s ease"
         _hover={{
-          transform: "translateY(-8px)",
-          shadow: "2xl",
-          borderColor: "brand.50",
+          transform: "translateY(-3px)",
+          borderColor: "whiteAlpha.300",
         }}
         height="full"
         cursor="pointer"
         role="group"
       >
-        <VStack align="start" spacing={5}>
-          <HStack spacing={4}>
-            <Tag
-              size="sm"
-              bgGradient="linear(to-r, brand.50, brand.100)"
-              color="white"
-              borderRadius="full"
-              px={3}
-              fontSize="10px"
-              fontWeight="bold"
-            >
-              ARTICLE
-            </Tag>
-            <Text fontSize="10px" color="ash" fontWeight="bold" letterSpacing="1px">
-              {new Date(post.frontmatter.date).toLocaleDateString('en-US', { 
-                month: 'long', 
-                day: 'numeric', 
-                year: 'numeric' 
-              }).toUpperCase()}
-            </Text>
-          </HStack>
-          
+        <VStack align="start" spacing={4}>
+          <Text fontSize="11px" color="ash" fontFamily="MonolisaRegular" letterSpacing="1px">
+            {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
+              month: "long",
+              day: "numeric",
+              year: "numeric",
+            }).toUpperCase()}
+          </Text>
+
           <VStack align="start" spacing={3}>
-            <CustomHeading 
-              fontSize={{ base: "xl", md: "2xl" }} 
-              _groupHover={{ color: "brand.50" }}
+            <Text
+              fontSize={{ base: "18px", md: "20px" }}
+              fontFamily="MonolisaBold"
+              color="white"
+              lineHeight="1.35"
+              _groupHover={{
+                textDecoration: "underline",
+                textDecorationColor: "whiteAlpha.400",
+                textUnderlineOffset: "3px",
+              }}
               transition="0.2s"
-              lineHeight="1.3"
             >
               {post.frontmatter.title}
-            </CustomHeading>
-            <CustomText noOfLines={3} fontSize="sm" lineHeight="1.6" fontFamily="MonolisaRegular">
+            </Text>
+            <CustomText noOfLines={3} lineHeight="1.8">
               {post.frontmatter.description}
             </CustomText>
           </VStack>
 
-          <Flex align="center" color="brand.100" fontWeight="bold" fontSize="10px" letterSpacing="1px">
-            READ STORY <Box as="span" ml={2} transition="0.2s" _groupHover={{ ml: 4 }}>→</Box>
-          </Flex>
+          <Text
+            fontSize="11px"
+            color="dim"
+            fontFamily="MonolisaBold"
+            letterSpacing="1px"
+            _groupHover={{ color: "white" }}
+            transition="0.2s"
+          >
+            READ →
+          </Text>
         </VStack>
       </Box>
     </Link>
@@ -93,27 +84,26 @@ function BlogIndex({ posts }) {
         <meta name="twitter:creator" content="@sreeeeenivas" />
       </Head>
 
-      <Container maxW="6xl" py={{ base: 10, md: 24 }}>
-        <VStack spacing={20} align="stretch">
-          <VStack align="start" spacing={6}>
-            <Box
-              w="40px"
-              h="6px"
-              bgGradient="linear(to-r, brand.50, brand.100)"
-              borderRadius="full"
-            />
-            <VStack align="start" spacing={2}>
-              <CustomHeading fontSize={{ base: "4xl", md: "6xl" }} letterSpacing="-2px">
-                Writing & <br /> Reflections
-              </CustomHeading>
-              <CustomText maxW="2xl" fontSize="lg" fontFamily="MonolisaRegular">
-                Notes on building products, engineering leadership, and the 
-                ever-evolving landscape of AI.
-              </CustomText>
-            </VStack>
+      <Container maxW="full" px={4} py={{ base: 10, md: 20 }}>
+        <VStack spacing={16} align="stretch">
+          <VStack align="start" spacing={4}>
+            <SectionLabel>WRITING</SectionLabel>
+            <Text
+              fontFamily="MonolisaBold"
+              fontSize={{ base: "32px", md: "40px" }}
+              color="white"
+              letterSpacing="-0.5px"
+              lineHeight="1.2"
+            >
+              Writing &<br />Reflections
+            </Text>
+            <CustomText maxW="560px" lineHeight="1.8">
+              Notes on building products, engineering leadership, and the
+              ever-evolving landscape of AI.
+            </CustomText>
           </VStack>
 
-          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={10}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} spacing={6}>
             {posts.map((post) => (
               <BlogCard key={post.slug} post={post} />
             ))}
@@ -126,11 +116,7 @@ function BlogIndex({ posts }) {
 
 export async function getStaticProps() {
   const posts = getAllBlogPosts();
-  return {
-    props: {
-      posts,
-    },
-  };
+  return { props: { posts } };
 }
 
 export default BlogIndex;

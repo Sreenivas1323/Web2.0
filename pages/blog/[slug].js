@@ -3,32 +3,83 @@ import {
   Container,
   VStack,
   Text,
-  Flex,
-  useColorModeValue,
   Divider,
 } from "@chakra-ui/react";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import Head from "next/head";
 import { getBlogSlugs, getBlogPostBySlug } from "../../src/lib/blog";
-import { CustomHeading, CustomText } from "../../src/components/CustomComponents";
+import { CustomText } from "../../src/components/CustomComponents";
 
 const components = {
-  h1: (props) => <CustomHeading as="h1" fontSize={{ base: "3xl", md: "4xl" }} mt={12} mb={6} color="white" {...props} />,
-  h2: (props) => <CustomHeading as="h2" fontSize={{ base: "2xl", md: "3xl" }} mt={12} mb={4} color="white" {...props} />,
-  h3: (props) => <CustomHeading as="h3" fontSize={{ base: "xl", md: "2xl" }} mt={10} mb={4} color="white" {...props} />,
-  p: (props) => <Text my={6} fontSize="lg" lineHeight="1.8" color="ash" fontFamily="MonolisaRegular" {...props} />,
-  ul: (props) => <Box as="ul" ml={6} my={6} color="ash" {...props} />,
-  li: (props) => <Box as="li" my={3} fontSize="lg" lineHeight="1.6" fontFamily="MonolisaRegular" {...props} />,
+  h1: (props) => (
+    <Text
+      as="h1"
+      fontFamily="MonolisaBold"
+      fontSize={{ base: "28px", md: "32px" }}
+      color="white"
+      mt={14}
+      mb={6}
+      lineHeight="1.3"
+      letterSpacing="-0.3px"
+      {...props}
+    />
+  ),
+  h2: (props) => (
+    <Text
+      as="h2"
+      fontFamily="MonolisaBold"
+      fontSize={{ base: "22px", md: "26px" }}
+      color="white"
+      mt={14}
+      mb={5}
+      lineHeight="1.3"
+      {...props}
+    />
+  ),
+  h3: (props) => (
+    <Text
+      as="h3"
+      fontFamily="MonolisaBold"
+      fontSize={{ base: "18px", md: "20px" }}
+      color="white"
+      mt={12}
+      mb={4}
+      lineHeight="1.4"
+      {...props}
+    />
+  ),
+  p: (props) => (
+    <Text
+      my={5}
+      fontSize={{ base: "15px", md: "16px" }}
+      lineHeight="2"
+      color="#B0B0B0"
+      fontFamily="MonolisaRegular"
+      {...props}
+    />
+  ),
+  ul: (props) => <Box as="ul" ml={5} my={5} color="#B0B0B0" {...props} />,
+  li: (props) => (
+    <Box
+      as="li"
+      my={3}
+      fontSize={{ base: "15px", md: "16px" }}
+      lineHeight="1.9"
+      fontFamily="MonolisaRegular"
+      {...props}
+    />
+  ),
+  strong: (props) => <Text as="strong" color="white" fontFamily="MonolisaBold" {...props} />,
   code: (props) => (
     <Box
       as="code"
       bg="whiteAlpha.100"
       px={2}
       py={1}
-      borderRadius="md"
+      borderRadius="4px"
       fontSize="0.9em"
-      color="brand.50"
+      color="white"
       fontFamily="MonolisaRegular"
       {...props}
     />
@@ -36,51 +87,65 @@ const components = {
 };
 
 export default function Post({ source, frontmatter }) {
-  const dateStr = new Date(frontmatter.date).toLocaleDateString('en-US', { 
-    month: 'long', 
-    day: 'numeric', 
-    year: 'numeric' 
+  const dateStr = new Date(frontmatter.date).toLocaleDateString("en-US", {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
   });
 
   return (
     <>
       <Head>
-        <title>{frontmatter.title} - Sreenivas</title>
+        <title>{frontmatter.title} — Sreenivas Sonthena</title>
         <meta name="description" content={frontmatter.description} />
+        <meta name="twitter:creator" content="@sreeeeenivas" />
+        <meta name="twitter:card" content="summary_large_image" />
       </Head>
 
-      <Container maxW="3xl" pt={{ base: 20, md: 32 }} pb={20}>
-        <VStack align="start" spacing={12}>
+      <Container maxW="680px" pt={{ base: 14, md: 24 }} pb={20} px={4}>
+        <VStack align="start" spacing={10}>
+          {/* Header */}
           <VStack align="start" spacing={4}>
-            <Text 
-              fontWeight="bold" 
-              fontSize="xs" 
-              letterSpacing="3px" 
-              bgGradient="linear(to-r, brand.50, brand.100)"
-              bgClip="text"
+            <Text
+              fontSize="11px"
+              letterSpacing="3px"
               textTransform="uppercase"
-              fontFamily="MonolisaBold"
+              fontFamily="MonolisaRegular"
+              color="ash"
             >
-              Published {dateStr}
+              {dateStr}
             </Text>
-            <CustomHeading fontSize={{ base: "4xl", md: "6xl" }} lineHeight="1.1" letterSpacing="-1px">
+            <Text
+              as="h1"
+              fontFamily="MonolisaBold"
+              fontSize={{ base: "30px", md: "40px" }}
+              lineHeight="1.15"
+              letterSpacing="-0.5px"
+              color="white"
+            >
               {frontmatter.title}
-            </CustomHeading>
+            </Text>
           </VStack>
 
-          <Divider borderColor="whiteAlpha.100" />
+          <Box w="full" h="1px" bg="whiteAlpha.100" />
 
-          <Box w="full" className="article-content">
+          {/* Article */}
+          <Box w="full">
             <MDXRemote {...source} components={components} />
           </Box>
 
-          <Box pt={20} w="full">
-            <Divider borderColor="whiteAlpha.100" mb={10} />
-            <VStack align="start" spacing={6}>
-              <Text fontWeight="bold" color="ash" fontSize="xs" letterSpacing="2px" textTransform="uppercase">Written by</Text>
+          {/* Author */}
+          <Box pt={16} w="full">
+            <Box h="1px" bg="whiteAlpha.100" mb={10} />
+            <VStack align="start" spacing={4}>
+              <Text fontSize="11px" color="ash" letterSpacing="2px" textTransform="uppercase" fontFamily="MonolisaRegular">
+                Written by
+              </Text>
               <VStack align="start" spacing={1}>
-                <CustomHeading fontSize="3xl">Sreenivas Sonthena</CustomHeading>
-                <CustomText fontSize="md">
+                <Text fontFamily="MonolisaBold" fontSize="24px" color="white">
+                  Sreenivas Sonthena
+                </Text>
+                <CustomText>
                   Tech Lead at Intripid building the future of travel platforms.
                 </CustomText>
               </VStack>
@@ -97,21 +162,11 @@ export async function getStaticPaths() {
   const paths = slugs.map((slug) => ({
     params: { slug: slug.replace(/\.mdx?$/, "") },
   }));
-
-  return {
-    paths,
-    fallback: false,
-  };
+  return { paths, fallback: false };
 }
 
 export async function getStaticProps({ params }) {
   const { content, frontmatter } = getBlogPostBySlug(params.slug);
   const mdxSource = await serialize(content);
-
-  return {
-    props: {
-      source: mdxSource,
-      frontmatter,
-    },
-  };
+  return { props: { source: mdxSource, frontmatter } };
 }

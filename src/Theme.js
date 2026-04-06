@@ -1,24 +1,22 @@
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
-import { Text } from "@chakra-ui/react";
 
 const config = {
   initialColorMode: "dark",
   useSystemColorMode: false,
 };
 
-const colors = {};
-
 const theme = extendTheme({
   config,
   colors: {
     transparent: "transparent",
     black: "#0B0B0B",
-    white: "#fff",
-    ash: "#949494",
+    white: "#EDEDED",
+    ash: "#666666",
+    dim: "#999999",
     brand: {
-      50: "#FC466B",
-      100: "#3F5EFB",
+      50: "#EDEDED",
+      100: "#EDEDED",
     },
   },
 
@@ -26,7 +24,15 @@ const theme = extendTheme({
   fonts: {
     heading: "MonolisaBold",
     body: "MonolisaRegular",
-    Text: "MonolisaBold",
+  },
+  fontSizes: {
+    "display": "52px",
+    "h1": "40px",
+    "h2": "28px",
+    "h3": "20px",
+    "body": "15px",
+    "sm": "13px",
+    "label": "11px",
   },
   styles: {
     global: (props) => ({
