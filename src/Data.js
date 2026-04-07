@@ -1,5 +1,37 @@
 export const Data = [
   {
+    Name: "Tia by Intripid",
+    web: "intripid.com",
+    link: "https://dev.intripid.co/",
+    tags: [
+      {
+        name: "2025—26",
+        color: "gray",
+      },
+      {
+        name: "Tech Lead",
+        color: "purple",
+      },
+      {
+        name: "AI Assistant",
+        color: "blue",
+      },
+    ],
+
+    desc: [
+      {
+        data: "Leading frontend for Tia — Intripid's intelligent travel assistant. AI-powered conversations that turn vague travel ideas into bookable trips. Currently shipping the first version end-to-end.",
+      },
+    ],
+
+    images: [
+      {
+        src: "/images/Intripid.png",
+        words: "Tia AI travel assistant interface",
+      },
+    ],
+  },
+  {
     Name: "Intripid",
     web: "intripid.com",
     link: "https://dev.intripid.co/",

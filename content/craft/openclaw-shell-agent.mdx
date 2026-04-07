@@ -1,0 +1,26 @@
+---
+title: "OpenClaw Shell Agent"
+date: "2026-03-22"
+description: "A local-first agent that runs shell scripts triggered from WhatsApp voice notes."
+tags: ["AI", "Agents", "Local-first"]
+status: "wip"
+type: "experiment"
+demoLink: ""
+sourceLink: ""
+cover: ""
+---
+
+## The idea
+
+Every time I'm out and remember a command I should've run on my dev machine, I have to wait until I'm back at the laptop. This agent listens for WhatsApp voice notes, transcribes them, and runs the matching shell script locally — no SSH, no friction.
+
+## How it works
+
+1. WhatsApp message → webhook
+2. Whisper transcribes
+3. A small LLM matches intent to a script in `~/openclaw/scripts`
+4. Confirmation reply with stdout
+
+## Status
+
+Working prototype on macOS. Still figuring out the auth model for letting an LLM execute commands without it being terrifying.

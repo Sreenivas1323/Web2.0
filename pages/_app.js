@@ -1,10 +1,10 @@
-import { Box, ChakraProvider, Container } from "@chakra-ui/react";
+import { ChakraProvider, Container } from "@chakra-ui/react";
 
 import theme from "../src/Theme";
 import { Chakra } from "../src/chakra";
 import "../styles/globals.css";
 import Fonts from "../styles/Theme/fonts";
-import { BottomPortion, TopLine } from "../src/components/CustomComponents";
+import { BottomPortion } from "../src/components/CustomComponents";
 import Header from "../src/components/Header";
 
 function MyApp({ Component, pageProps, cookies }) {
@@ -12,11 +12,9 @@ function MyApp({ Component, pageProps, cookies }) {
     <>
       <Chakra cookies={cookies}>
         <ChakraProvider theme={theme}>
-          <TopLine />
+          <Fonts />
+          <Header />
           <Container maxW="1080px" mx="auto">
-            <Header />
-
-            <Fonts />
             <Component {...pageProps} />
           </Container>
           <BottomPortion />
