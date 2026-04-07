@@ -88,14 +88,14 @@ export default function Home({ posts }) {
             <SectionLabel mb={5}>SREENIVAS SONTHENA</SectionLabel>
             <Text
               fontFamily="MonolisaBold"
-              fontSize={{ base: "30px", md: "38px", lg: "48px" }}
-              lineHeight="1.25"
+              fontSize={{ base: "22px", md: "28px", lg: "34px" }}
+              lineHeight="1.3"
               color="white"
-              letterSpacing="-1px"
-              maxW="850px"
+              letterSpacing="-0.8px"
+              maxW="780px"
             >
               I turn complex problems into{" "}
-              <AccentText textDecoration="underline" textDecorationColor="whiteAlpha.400" textUnderlineOffset="6px">
+              <AccentText textDecoration="underline" textDecorationColor="whiteAlpha.400" textUnderlineOffset="5px">
                 simple interfaces
               </AccentText>{" "}
               — from mechanical systems to AI-powered products.
@@ -151,14 +151,14 @@ export default function Home({ posts }) {
                 ].map((stat) => (
                   <Box key={stat.label} flex="1" minW="100px">
                     <Text
-                      fontSize={{ base: "36px", md: "44px" }}
+                      fontSize={{ base: "28px", md: "32px" }}
                       fontFamily="MonolisaBold"
                       color="white"
                       lineHeight="1"
                     >
                       {stat.number}
                     </Text>
-                    <Text fontSize="11px" color="ash" fontFamily="MonolisaRegular" mt={2} letterSpacing="0.5px">
+                    <Text fontSize="10px" color="ash" fontFamily="MonolisaRegular" mt={2} letterSpacing="0.5px">
                       {stat.label}
                     </Text>
                   </Box>
@@ -176,7 +176,7 @@ export default function Home({ posts }) {
                 <Box position="absolute" top={0} left={0} right={0} h="1px" bg="white" />
                 <HStack mb={3}>
                   <Box w="6px" h="6px" borderRadius="full" bg="white" />
-                  <Text fontSize="11px" fontFamily="MonolisaBold" textTransform="uppercase" letterSpacing="2px" color="dim">
+                  <Text fontSize="10px" fontFamily="MonolisaBold" textTransform="uppercase" letterSpacing="2px" color="dim">
                     What I&apos;m doing now
                   </Text>
                 </HStack>
@@ -224,7 +224,7 @@ export default function Home({ posts }) {
           <Flex justify="space-between" align="center" mb={8}>
             <CustomTeritoryHeading>Recent thoughts</CustomTeritoryHeading>
             <Link href="/blog">
-              <Text fontSize="13px" color="ash" fontFamily="MonolisaRegular" _hover={{ color: "white" }} transition="0.2s">
+              <Text fontSize="11px" color="ash" fontFamily="MonolisaRegular" _hover={{ color: "white" }} transition="0.2s">
                 View all →
               </Text>
             </Link>
@@ -247,7 +247,7 @@ export default function Home({ posts }) {
                   height="full"
                 >
                   <VStack align="start" spacing={3}>
-                    <Text fontSize="11px" color="ash" fontFamily="MonolisaRegular" letterSpacing="1px">
+                    <Text fontSize="10px" color="ash" fontFamily="MonolisaRegular" letterSpacing="1px">
                       {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
                         month: "long",
                         day: "numeric",
@@ -255,7 +255,7 @@ export default function Home({ posts }) {
                       }).toUpperCase()}
                     </Text>
                     <Text
-                      fontSize={{ base: "16px", md: "18px" }}
+                      fontSize={{ base: "14px", md: "15px" }}
                       fontFamily="MonolisaBold"
                       color="white"
                       lineHeight="1.4"
@@ -267,7 +267,7 @@ export default function Home({ posts }) {
                     <CustomText noOfLines={2} lineHeight="1.7">
                       {post.frontmatter.description}
                     </CustomText>
-                    <Text fontSize="11px" color="dim" fontFamily="MonolisaBold" letterSpacing="1px" _groupHover={{ color: "white" }} transition="0.2s">
+                    <Text fontSize="10px" color="dim" fontFamily="MonolisaBold" letterSpacing="1px" _groupHover={{ color: "white" }} transition="0.2s">
                       READ →
                     </Text>
                   </VStack>

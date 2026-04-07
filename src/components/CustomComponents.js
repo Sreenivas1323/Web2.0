@@ -8,18 +8,18 @@ import Link from "next/link";
 import { Link as ChakraLink } from "@chakra-ui/react";
 
 // --- Type Scale ---
-// display: 48-52px  — hero headings
-// h1: 36-40px       — page headings
-// h2: 24-28px       — section headings
-// h3: 18-20px       — sub-section headings
-// body: 15px        — paragraph text
-// sm: 13px          — small text, captions
-// label: 11px       — labels, tags, uppercase markers
+// display: 32-38px  — hero headings
+// h1: 26-30px       — page headings
+// h2: 20-22px       — section headings
+// h3: 15-16px       — sub-section headings
+// body: 13px        — paragraph text
+// sm: 12px          — small text, captions
+// label: 10px       — labels, tags, uppercase markers
 
 export const CustomHeading = ({ children, ...props }) => {
   return (
     <Heading
-      fontSize={{ base: "36px", md: "36px", lg: "40px" }}
+      fontSize={{ base: "26px", md: "28px", lg: "30px" }}
       fontFamily="MonolisaBold"
       color="white"
       letterSpacing="-0.5px"
@@ -33,7 +33,7 @@ export const CustomHeading = ({ children, ...props }) => {
 export const CustomSecondaryHeading = ({ children, ...props }) => {
   return (
     <Heading
-      fontSize={{ base: "24px", md: "26px", lg: "28px" }}
+      fontSize={{ base: "18px", md: "20px", lg: "22px" }}
       fontFamily="MonolisaBold"
       color="white"
       letterSpacing="-0.3px"
@@ -47,7 +47,7 @@ export const CustomSecondaryHeading = ({ children, ...props }) => {
 export const CustomTeritoryHeading = ({ children, ...props }) => {
   return (
     <Heading
-      fontSize={{ base: "18px", md: "19px", lg: "20px" }}
+      fontSize={{ base: "15px", md: "16px" }}
       fontFamily="MonolisaBold"
       color="white"
       {...props}
@@ -94,7 +94,7 @@ export const CustomChakraLink = ({ children, ...props }) => {
 
 export const CustomText = ({ children, ...props }) => {
   return (
-    <Text fontFamily="MonolisaRegular" color="ash" fontSize="15px" {...props}>
+    <Text fontFamily="MonolisaRegular" color="ash" fontSize="13px" {...props}>
       {children}
     </Text>
   );
@@ -115,10 +115,10 @@ export const AccentText = ({ children, ...props }) => {
 export const SectionLabel = ({ children, ...props }) => {
   return (
     <Text
-      fontSize="11px"
+      fontSize="10px"
       fontWeight="bold"
       textTransform="uppercase"
-      letterSpacing="3px"
+      letterSpacing="2.5px"
       color="dim"
       fontFamily="MonolisaBold"
       {...props}
@@ -143,7 +143,7 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
 
     case "med":
       return (
-        <Button {...props} size="md" fontSize="13px">
+        <Button {...props} size="sm" fontSize="12px">
           {children}
         </Button>
       );
@@ -157,8 +157,8 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
             color: "black",
           }}
           {...props}
-          size="sm"
-          fontSize="12px"
+          size="xs"
+          fontSize="11px"
           bg="whiteAlpha.100"
           color="white"
         >
@@ -168,7 +168,7 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
 
     case "ghost":
       return (
-        <Button {...props} variant="ghost" size="md" fontSize="13px">
+        <Button {...props} variant="ghost" size="sm" fontSize="12px">
           {children}
         </Button>
       );
@@ -181,9 +181,11 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
             _hover={{ transform: "translateY(-2px)", opacity: 0.85 }}
             bg="white"
             color="black"
-            size="sm"
-            fontSize="13px"
+            size="xs"
+            fontSize="11px"
             fontFamily="MonolisaBold"
+            px={4}
+            py={4}
           >
             {children}
           </Button>
@@ -203,9 +205,11 @@ export const CustomButton = ({ children, variant, href, ...props }) => {
               transform: "translateY(-2px)",
             }}
             transition="all 0.2s"
-            size="sm"
-            fontSize="13px"
+            size="xs"
+            fontSize="11px"
             fontFamily="MonolisaBold"
+            px={4}
+            py={4}
           >
             {children}
           </Button>

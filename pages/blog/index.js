@@ -31,7 +31,7 @@ const BlogCard = ({ post }) => {
         role="group"
       >
         <VStack align="start" spacing={4}>
-          <Text fontSize="11px" color="ash" fontFamily="MonolisaRegular" letterSpacing="1px">
+          <Text fontSize="10px" color="ash" fontFamily="MonolisaRegular" letterSpacing="1px">
             {new Date(post.frontmatter.date).toLocaleDateString("en-US", {
               month: "long",
               day: "numeric",
@@ -41,7 +41,7 @@ const BlogCard = ({ post }) => {
 
           <VStack align="start" spacing={3}>
             <Text
-              fontSize={{ base: "18px", md: "20px" }}
+              fontSize={{ base: "15px", md: "16px" }}
               fontFamily="MonolisaBold"
               color="white"
               lineHeight="1.35"
@@ -60,7 +60,7 @@ const BlogCard = ({ post }) => {
           </VStack>
 
           <Text
-            fontSize="11px"
+            fontSize="10px"
             color="dim"
             fontFamily="MonolisaBold"
             letterSpacing="1px"
@@ -90,7 +90,7 @@ function BlogIndex({ posts }) {
             <SectionLabel>WRITING</SectionLabel>
             <Text
               fontFamily="MonolisaBold"
-              fontSize={{ base: "32px", md: "40px" }}
+              fontSize={{ base: "26px", md: "32px" }}
               color="white"
               letterSpacing="-0.5px"
               lineHeight="1.2"

@@ -110,11 +110,11 @@ const About = () => {
             <SectionLabel mb={5}>ABOUT</SectionLabel>
             <Text
               fontFamily="MonolisaBold"
-              fontSize={{ base: "28px", md: "36px", lg: "44px" }}
-              lineHeight="1.25"
+              fontSize={{ base: "22px", md: "26px", lg: "30px" }}
+              lineHeight="1.3"
               color="white"
               letterSpacing="-0.5px"
-              maxW="800px"
+              maxW="720px"
             >
               I started with{" "}
               <AccentText textDecoration="underline" textDecorationColor="whiteAlpha.400" textUnderlineOffset="5px">
@@ -135,14 +135,14 @@ const About = () => {
             variants={{ ...fadeInUp, visible: { ...fadeInUp.visible, transition: { delay: 0.1, duration: 0.5, ease: "easeOut" } } }}
           >
             <VStack spacing={6} align="stretch" maxW="680px">
-              <CustomText fontSize={{ base: "14px", md: "15px" }} lineHeight="1.9">
+              <CustomText fontSize={{ base: "13px", md: "13px" }} lineHeight="1.9">
                 I&apos;m Sreenivas — a mechatronics engineer from India who fell
                 in love with interfaces. My engineering degree taught me systems
                 thinking: how mechanical, electrical, and software components
                 work together. Turns out, that&apos;s exactly how great products
                 are built too.
               </CustomText>
-              <CustomText fontSize={{ base: "14px", md: "15px" }} lineHeight="1.9">
+              <CustomText fontSize={{ base: "13px", md: "13px" }} lineHeight="1.9">
                 I led a team of 25 to build an all-terrain vehicle from scratch
                 for the FMAE-BAJA competition. That experience — designing
                 physical systems under real constraints, coordinating across
@@ -151,7 +151,7 @@ const About = () => {
                 rough terrain. Good software has to survive real users. Same
                 energy.
               </CustomText>
-              <CustomText fontSize={{ base: "14px", md: "15px" }} lineHeight="1.9">
+              <CustomText fontSize={{ base: "13px", md: "13px" }} lineHeight="1.9">
                 From there, I moved into product design and development.
                 I&apos;ve designed brand identities, built data visualization
                 platforms, shipped financial wellness apps, and now I&apos;m
@@ -180,7 +180,7 @@ const About = () => {
                   transition="all 0.2s"
                   _hover={{ borderColor: "whiteAlpha.300" }}
                 >
-                  <Text fontFamily="MonolisaBold" fontSize="16px" color="white" mb={3}>
+                  <Text fontFamily="MonolisaBold" fontSize="14px" color="white" mb={3}>
                     {belief.title}
                   </Text>
                   <CustomText lineHeight="1.8">
@@ -216,20 +216,20 @@ const About = () => {
                   }}
                 >
                   <HStack spacing={3} mb={1} minW={{ md: "100px" }}>
-                    <Text fontFamily="MonolisaBold" fontSize="13px" color="white">
+                    <Text fontFamily="MonolisaBold" fontSize="12px" color="white">
                       {item.year}
                     </Text>
                     {item.isCurrent && (
-                      <Tag size="sm" bg="white" color="black" borderRadius="full" fontSize="9px" fontFamily="MonolisaBold">
+                      <Tag size="sm" bg="white" color="black" borderRadius="full" fontSize="8px" fontFamily="MonolisaBold">
                         NOW
                       </Tag>
                     )}
                   </HStack>
                   <Box ml={{ md: 8 }}>
-                    <Text fontFamily="MonolisaBold" color="white" fontSize={{ base: "16px", md: "18px" }}>
+                    <Text fontFamily="MonolisaBold" color="white" fontSize={{ base: "14px", md: "15px" }}>
                       {item.role}
                     </Text>
-                    <Text fontFamily="MonolisaRegular" color="dim" fontSize="13px" mb={1}>
+                    <Text fontFamily="MonolisaRegular" color="dim" fontSize="12px" mb={1}>
                       {item.company}
                     </Text>
                     <CustomText lineHeight="1.7">
@@ -253,7 +253,7 @@ const About = () => {
                   border="1px solid"
                   borderColor="whiteAlpha.100"
                   borderRadius="full"
-                  fontSize="13px"
+                  fontSize="11px"
                   fontFamily="MonolisaRegular"
                   color="ash"
                   transition="all 0.2s"
@@ -268,7 +268,7 @@ const About = () => {
           {/* Let's Connect */}
           <Box>
             <SectionLabel mb={5}>LET&apos;S CONNECT</SectionLabel>
-            <CustomText fontSize={{ base: "14px", md: "15px" }} lineHeight="1.9" maxW="580px" mb={6}>
+            <CustomText fontSize="13px" lineHeight="1.9" maxW="560px" mb={6}>
               I&apos;m always open to conversations about product engineering,
               design systems, AI, or just nerding out about mechanical keyboards
               and motorsport. Drop me a line or find me on social.

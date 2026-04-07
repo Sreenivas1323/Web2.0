@@ -16,10 +16,10 @@ const components = {
     <Text
       as="h1"
       fontFamily="MonolisaBold"
-      fontSize={{ base: "28px", md: "32px" }}
+      fontSize={{ base: "22px", md: "26px" }}
       color="white"
       mt={14}
-      mb={6}
+      mb={5}
       lineHeight="1.3"
       letterSpacing="-0.3px"
       {...props}
@@ -29,10 +29,10 @@ const components = {
     <Text
       as="h2"
       fontFamily="MonolisaBold"
-      fontSize={{ base: "22px", md: "26px" }}
+      fontSize={{ base: "18px", md: "20px" }}
       color="white"
-      mt={14}
-      mb={5}
+      mt={12}
+      mb={4}
       lineHeight="1.3"
       {...props}
     />
@@ -41,10 +41,10 @@ const components = {
     <Text
       as="h3"
       fontFamily="MonolisaBold"
-      fontSize={{ base: "18px", md: "20px" }}
+      fontSize={{ base: "15px", md: "16px" }}
       color="white"
-      mt={12}
-      mb={4}
+      mt={10}
+      mb={3}
       lineHeight="1.4"
       {...props}
     />
@@ -52,7 +52,7 @@ const components = {
   p: (props) => (
     <Text
       my={5}
-      fontSize={{ base: "15px", md: "16px" }}
+      fontSize={{ base: "13px", md: "14px" }}
       lineHeight="2"
       color="#B0B0B0"
       fontFamily="MonolisaRegular"
@@ -64,7 +64,7 @@ const components = {
     <Box
       as="li"
       my={3}
-      fontSize={{ base: "15px", md: "16px" }}
+      fontSize={{ base: "13px", md: "14px" }}
       lineHeight="1.9"
       fontFamily="MonolisaRegular"
       {...props}
@@ -107,8 +107,8 @@ export default function Post({ source, frontmatter }) {
           {/* Header */}
           <VStack align="start" spacing={4}>
             <Text
-              fontSize="11px"
-              letterSpacing="3px"
+              fontSize="10px"
+              letterSpacing="2.5px"
               textTransform="uppercase"
               fontFamily="MonolisaRegular"
               color="ash"
@@ -118,8 +118,8 @@ export default function Post({ source, frontmatter }) {
             <Text
               as="h1"
               fontFamily="MonolisaBold"
-              fontSize={{ base: "30px", md: "40px" }}
-              lineHeight="1.15"
+              fontSize={{ base: "24px", md: "30px" }}
+              lineHeight="1.2"
               letterSpacing="-0.5px"
               color="white"
             >
@@ -138,11 +138,11 @@ export default function Post({ source, frontmatter }) {
           <Box pt={16} w="full">
             <Box h="1px" bg="whiteAlpha.100" mb={10} />
             <VStack align="start" spacing={4}>
-              <Text fontSize="11px" color="ash" letterSpacing="2px" textTransform="uppercase" fontFamily="MonolisaRegular">
+              <Text fontSize="10px" color="ash" letterSpacing="2px" textTransform="uppercase" fontFamily="MonolisaRegular">
                 Written by
               </Text>
               <VStack align="start" spacing={1}>
-                <Text fontFamily="MonolisaBold" fontSize="24px" color="white">
+                <Text fontFamily="MonolisaBold" fontSize="18px" color="white">
                   Sreenivas Sonthena
                 </Text>
                 <CustomText>
