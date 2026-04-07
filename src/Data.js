@@ -20,14 +20,14 @@ export const Data = [
 
     desc: [
       {
-        data: "Currently serving as Tech Lead at Intripid since October 2024, building an end-to-end future of travel platform. Focusing on frontend development, user interfaces, interactions, and AI flows to make travel easier and more intuitive.",
+        data: "Leading frontend development at Intripid — building an AI-powered travel platform that makes trip planning feel effortless. Shipping user interfaces, interaction patterns, and AI flows since October 2024.",
       },
     ],
 
     images: [
       {
         src: "/images/Intripid.png",
-        words: "Intripid Tech Lead",
+        words: "Intripid travel platform interface with AI-powered trip planning",
       },
     ],
   },
@@ -48,18 +48,18 @@ export const Data = [
 
     desc: [
       {
-        data: "Previously worked on design and development of outstanding software products, focusing on financial wellness solutions and building design teams.",
+        data: "Designed and built financial wellness products from zero to launch. Led the design system, shipped production code, and helped grow the team.",
       },
     ],
 
     images: [
       {
         src: "/images/Lcs.png",
-        words: "LeafCraft Studios",
+        words: "LeafCraft Studios product design and development",
       },
       {
         src: "/images/Lcs2.png",
-        words: "LeafCraft App",
+        words: "LeafCraft Studios financial wellness application",
       },
     ],
   },
@@ -86,22 +86,19 @@ export const Data = [
 
     desc: [
       {
-        data: "My previous full-time role, where I led the design team to work on modern solutions for data presentation.",
-      },
-      {
-        data: "I worked on the brand identity, website and our web application. I worked the integration of the web application to the website, using next js, and styled components. ",
+        data: "Built the brand identity, marketing site, and data visualization web app from the ground up. Led design for modern data presentation solutions using Next.js and styled-components.",
       },
     ],
 
     images: [
       {
         src: "/images/Dm1.png",
-        words: "asdasdasdasdasdasda",
+        words: "Datametrix dashboard showing data visualization interface",
       },
 
       {
         src: "/images/Dm2.jpg",
-        words: "asdasdasdasdasdasda",
+        words: "Datametrix brand identity and web application design",
       },
     ],
   },
@@ -120,17 +117,14 @@ export const Data = [
     ],
     desc: [
       {
-        data: "I Headed a team of 25, where we designed and fabricated an All terrain vehicle for FMAE-BAJA 2021 Competition.",
-      },
-      {
-        data: "We created branding for the team too. :D",
+        data: "Led a 25-person team to design and fabricate an all-terrain vehicle for the FMAE-BAJA 2021 Competition. Created the team's branding and merchandise too.",
       },
     ],
 
     images: [
       {
         src: "/images/baha.png",
-        words: "asdasdasdasdasdasda",
+        words: "FMAE BAJA 2021 all-terrain vehicle and team branding",
       },
     ],
   },
@@ -148,17 +142,14 @@ export const Data = [
 
     desc: [
       {
-        data: "When we went through the axcess, Application Tracking System Concept, We have found the scope for a Minimal, yet data centric resume builder. ",
-      },
-      {
-        data: "At the earlier days of figma-community, we wanted to create a minimal resume builder, and it always have its place, while creating/updating my resume.",
+        data: "Designed a minimal, ATS-friendly resume builder focused on clean data presentation. Published on Figma Community in the early days of the platform — still my go-to template for updating my own resume.",
       },
     ],
 
     images: [
       {
         src: "/images/minimal.png",
-        words: "Minimal resume Thumbnail",
+        words: "Minimal resume builder Figma template",
       },
     ],
   },

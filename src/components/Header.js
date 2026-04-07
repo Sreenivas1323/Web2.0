@@ -2,13 +2,12 @@ import {
   Center,
   Container,
   Flex,
-  HStack,
-  Icon,
   Spacer,
   Stack,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { CustomButton } from "./CustomComponents";
+import { Icon } from "@chakra-ui/react";
 
 const FavIcon = (props) => (
   <Link href="/">
@@ -29,7 +28,7 @@ const FavIcon = (props) => (
 
 const Links = ({ isMobile }) => {
   return (
-    <Stack direction={"row"} spacing={isMobile ? "4" : "20"}>
+    <Stack direction="row" spacing={isMobile ? "4" : "20"}>
       <Link href="/" passHref>
         <CustomButton variant="ghost" color={isMobile ? "white" : "ash"}>Home</CustomButton>
       </Link>
@@ -49,8 +48,8 @@ const Header = () => {
       <Container
         maxW="full"
         display={{ base: "none", md: "block" }}
-        position={"sticky"}
-        zIndex={"10"}
+        position="sticky"
+        zIndex="10"
         top="0"
         style={{ backdropFilter: "saturate(180%) blur(20px)" }}
         py="4"
@@ -73,13 +72,13 @@ const Header = () => {
       <Container
         maxW="full"
         display={{ base: "block", md: "none" }}
-        style={{
-          position: "fixed",
-          left: "0",
-          bottom: "0",
-          background: "linear-gradient(90deg, #FC466B -2.22%, #3F5EFB 99.02%)",
-          zIndex: "99",
-        }}
+        position="fixed"
+        left="0"
+        bottom="0"
+        bg="#0B0B0B"
+        borderTop="1px solid"
+        borderColor="whiteAlpha.100"
+        zIndex="99"
         py={2}
       >
         <Center>
