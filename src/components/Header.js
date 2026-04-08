@@ -95,7 +95,7 @@ const Header = () => {
                   cursor="pointer"
                   letterSpacing="-0.3px"
                 >
-                  sreenivas
+                  ssaisreenivas.in
                 </Text>
               </Link>
               <StatusChip />
@@ -130,8 +130,9 @@ const Header = () => {
               fontFamily="MonolisaBold"
               color="white"
               cursor="pointer"
+              letterSpacing="-0.3px"
             >
-              sreenivas
+              s.
             </Text>
           </Link>
           <StatusChip />
