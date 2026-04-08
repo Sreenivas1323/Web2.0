@@ -84,45 +84,34 @@ export default function Home({ posts }) {
       <div>
         {/* Hero */}
         <MotionBox initial="hidden" animate="visible" variants={fadeInUp}>
-          <Container maxW="full" px={4} pt={{ base: 8, md: 14, lg: 20 }}>
+          <Container maxW="full" px={4} pt={{ base: 8, md: 14, lg: 16 }}>
             <SectionLabel mb={5}>SREENIVAS SONTHENA</SectionLabel>
             <Text
               fontFamily="MonolisaBold"
-              fontSize={{ base: "22px", md: "28px", lg: "34px" }}
-              lineHeight="1.3"
+              fontSize={{ base: "22px", md: "28px", lg: "32px" }}
+              lineHeight="1.35"
               color="white"
-              letterSpacing="-0.8px"
+              letterSpacing="-0.6px"
               maxW="780px"
             >
-              I turn complex problems into{" "}
+              I build software products{" "}
               <AccentText textDecoration="underline" textDecorationColor="whiteAlpha.400" textUnderlineOffset="5px">
-                simple interfaces
-              </AccentText>{" "}
-              — from mechanical systems to AI-powered products.
+                end-to-end
+              </AccentText>
+              . Currently building Tia at Intripid, writing about AI, and
+              shipping experiments on the side.
             </Text>
           </Container>
         </MotionBox>
 
-        {/* Social + CTAs */}
+        {/* Contact stack — vertical, left-aligned */}
         <MotionBox
           initial="hidden"
           animate="visible"
           variants={{ ...fadeInUp, visible: { ...fadeInUp.visible, transition: { delay: 0.1, duration: 0.5, ease: "easeOut" } } }}
         >
-          <Container maxW="full" px={4}>
-            <Stack
-              direction={{ base: "column", md: "row" }}
-              spacing={{ base: "4", md: "10" }}
-              align={{ md: "center" }}
-            >
-              <HStack spacing={{ base: 5, md: 8 }} py={{ base: 5, md: 8 }}>
-                <CustomIkonButton variant="twitter" />
-                <CustomIkonButton variant="instagram" />
-                <CustomIkonButton variant="dribbble" />
-                <CustomIkonButton variant="linkedin" />
-                <CustomIkonButton variant="behance" />
-                <CustomIkonButton variant="github" />
-              </HStack>
+          <Container maxW="full" px={4} pt={{ base: 6, md: 8 }}>
+            <VStack align="start" spacing={4}>
               <HStack spacing={3}>
                 <CustomButton variant="themed" href="mailto:ssaisreenivas@gmail.com">
                   Get in touch →
@@ -131,7 +120,15 @@ export default function Home({ posts }) {
                   Read my writing
                 </CustomButton>
               </HStack>
-            </Stack>
+              <HStack spacing={5}>
+                <CustomIkonButton variant="twitter" />
+                <CustomIkonButton variant="instagram" />
+                <CustomIkonButton variant="dribbble" />
+                <CustomIkonButton variant="linkedin" />
+                <CustomIkonButton variant="behance" />
+                <CustomIkonButton variant="github" />
+              </HStack>
+            </VStack>
           </Container>
         </MotionBox>
 
