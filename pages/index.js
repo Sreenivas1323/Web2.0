@@ -68,6 +68,14 @@ export default function Home({ posts }) {
               jobTitle: "Tech Lead",
               worksFor: { "@type": "Organization", name: "Intripid" },
               url: "https://ssaisreenivas.in",
+              email: "ssaisreenivas@gmail.com",
+              telephone: "+918712720957",
+              address: {
+                "@type": "PostalAddress",
+                addressLocality: "Hyderabad",
+                addressRegion: "Telangana",
+                addressCountry: "IN",
+              },
               sameAs: [
                 "https://x.com/sreeeeenivas",
                 "https://instagram.com/sreeeeenivas",
@@ -271,6 +279,62 @@ export default function Home({ posts }) {
                 </Box>
               </Link>
             ))}
+          </SimpleGrid>
+        </Container>
+
+        {/* Divider */}
+        <Container maxW="full" px={4}>
+          <Box borderTop="1px dashed" borderColor="whiteAlpha.200" />
+        </Container>
+
+        {/* Contact */}
+        <Container maxW="full" px={4} py={10}>
+          <SectionLabel mb={3}>CONTACT</SectionLabel>
+          <CustomTeritoryHeading mb={6}>Let&apos;s work together</CustomTeritoryHeading>
+          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={4}>
+            <Box
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              borderRadius="12px"
+              p={5}
+            >
+              <Text fontSize="10px" fontFamily="MonolisaBold" textTransform="uppercase" letterSpacing="2px" color="dim" mb={2}>
+                Email
+              </Text>
+              <Link href="mailto:ssaisreenivas@gmail.com">
+                <Text fontSize="13px" fontFamily="MonolisaRegular" color="white" _hover={{ textDecoration: "underline", textDecorationColor: "whiteAlpha.400" }} transition="0.2s">
+                  ssaisreenivas@gmail.com
+                </Text>
+              </Link>
+            </Box>
+            <Box
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              borderRadius="12px"
+              p={5}
+            >
+              <Text fontSize="10px" fontFamily="MonolisaBold" textTransform="uppercase" letterSpacing="2px" color="dim" mb={2}>
+                Phone
+              </Text>
+              <Link href="tel:+918712720957">
+                <Text fontSize="13px" fontFamily="MonolisaRegular" color="white" _hover={{ textDecoration: "underline", textDecorationColor: "whiteAlpha.400" }} transition="0.2s">
+                  +91 87127 20957
+                </Text>
+              </Link>
+            </Box>
+            <Box
+              border="1px solid"
+              borderColor="whiteAlpha.100"
+              borderRadius="12px"
+              p={5}
+            >
+              <Text fontSize="10px" fontFamily="MonolisaBold" textTransform="uppercase" letterSpacing="2px" color="dim" mb={2}>
+                Based in
+              </Text>
+              <Text fontSize="13px" fontFamily="MonolisaRegular" color="white">
+                Hyderabad, India
+              </Text>
+            </Box>
           </SimpleGrid>
         </Container>
       </div>
