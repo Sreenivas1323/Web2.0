@@ -1,5 +1,5 @@
 import localFont from "next/font/local";
-import { Inter } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 
 export const monolisa = localFont({
   src: [
@@ -21,5 +21,12 @@ export const monolisa = localFont({
 export const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+  display: "swap",
+});
+
+export const newsreader = Newsreader({
+  subsets: ["latin"],
+  style: ["normal", "italic"],
+  variable: "--font-newsreader",
   display: "swap",
 });

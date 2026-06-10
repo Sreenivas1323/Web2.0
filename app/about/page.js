@@ -81,15 +81,15 @@ export default function About() {
     <div className="pt-12 md:pt-20">
       <Reveal>
         <p className="font-mono text-[10px] tracking-[3px] text-ash">ABOUT</p>
-        <h1 className="mt-5 max-w-[640px] font-mono text-[24px] font-bold leading-[1.35] tracking-tight text-ink md:text-[30px]">
+        <h1 className="mt-6 max-w-[820px] font-mono text-[clamp(28px,4.6vw,48px)] font-bold leading-[1.2] tracking-[-0.02em] text-ink">
           I started with{" "}
-          <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
+          <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
             gears and motors
-          </span>
+          </em>
           . Now I build with{" "}
-          <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
+          <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
             pixels and code
-          </span>
+          </em>
           .
         </h1>
       </Reveal>

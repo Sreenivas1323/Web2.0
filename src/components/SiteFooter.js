@@ -1,24 +1,27 @@
+import Magnetic from "./Magnetic";
 import { SITE, SOCIALS } from "../site";
 
 export default function SiteFooter() {
   return (
     <footer data-x="footer" className="mt-24 border-t border-line">
-      <div className="mx-auto max-w-[1080px] px-4 py-16">
+      <div className="mx-auto max-w-[1080px] px-4 py-20">
         <p className="font-mono text-[10px] tracking-[2px] text-ash">
           NEXT PROJECT
         </p>
-        <a
-          href={`mailto:${SITE.email}`}
-          className="group mt-4 inline-block font-mono text-[26px] font-bold leading-tight tracking-tight text-ink md:text-[34px]"
-        >
-          Let&apos;s build something{" "}
-          <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
-            end-to-end
-          </span>
-          <span className="ml-3 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
-            ↗
-          </span>
-        </a>
+        <Magnetic strength={0.12}>
+          <a
+            href={`mailto:${SITE.email}`}
+            className="group mt-5 inline-block font-mono text-[clamp(28px,4.6vw,54px)] font-bold leading-[1.1] tracking-[-0.02em] text-ink"
+          >
+            Let&apos;s build something{" "}
+            <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
+              end-to-end
+            </em>
+            <span className="ml-3 inline-block transition-transform group-hover:translate-x-1 group-hover:-translate-y-1">
+              ↗
+            </span>
+          </a>
+        </Magnetic>
 
         <div className="mt-12 flex flex-col gap-6 border-t border-line pt-8 md:flex-row md:items-center md:justify-between">
           <div className="flex flex-wrap gap-x-5 gap-y-2">
