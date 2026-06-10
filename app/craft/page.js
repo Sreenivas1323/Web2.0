@@ -34,9 +34,8 @@ export default function CraftIndex() {
         <p className="font-mono text-[10px] tracking-[3px] text-ash">
           CRAFT / THE LAB
         </p>
-        <h1 className="mt-5 font-mono text-[clamp(28px,4.6vw,48px)] font-bold leading-tight tracking-[-0.02em] text-ink">
-          Things I&apos;m{" "}
-          <em className="font-serif font-medium italic">tinkering</em> with
+        <h1 className="mt-4 font-mono text-[26px] font-bold leading-tight tracking-tight text-ink md:text-[30px]">
+          Things I&apos;m tinkering with
         </h1>
         <p className="mt-4 max-w-[560px] text-[13.5px] leading-[1.8] text-dim">
           Experiments, AI findings, weekend builds, and half-finished ideas.

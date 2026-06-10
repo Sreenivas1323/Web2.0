@@ -1,11 +1,8 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import HeroArtifact from "../src/components/HeroArtifact";
-import Magnetic from "../src/components/Magnetic";
-import Marquee from "../src/components/Marquee";
 import Reveal from "../src/components/Reveal";
-import RevealLine from "../src/components/RevealLine";
-import WorkList from "../src/components/WorkList";
 import { Data } from "../src/Data";
 import { getAllBlogPosts } from "../src/lib/blog";
 import { getAllCraft } from "../src/lib/craft";
@@ -32,6 +29,66 @@ const formatDate = (date) =>
     })
     .toUpperCase();
 
+function WorkRow({ item, index }) {
+  const { Name, web, link, desc, images, tags } = item;
+  const Wrapper = link ? "a" : "div";
+  const wrapperProps = link
+    ? { href: link, target: "_blank", rel: "noopener noreferrer" }
+    : {};
+
+  return (
+    <Wrapper
+      {...wrapperProps}
+      className="group grid grid-cols-[2.5rem_1fr] items-start gap-4 border-t border-line py-8 transition-colors hover:bg-white/[0.02] md:grid-cols-[2.5rem_1fr_auto] md:gap-8"
+    >
+      <span className="pt-1 font-mono text-[11px] text-ash">
+        {String(index + 1).padStart(2, "0")}
+      </span>
+
+      <div>
+        <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+          <h3 className="font-mono text-[15px] font-bold text-ink decoration-line-bright underline-offset-4 group-hover:underline">
+            {Name}
+          </h3>
+          {web && <span className="font-mono text-[10px] text-ash">{web}</span>}
+        </div>
+        <p className="mt-2 max-w-[560px] text-[13px] leading-relaxed text-dim">
+          {desc[0].data}
+        </p>
+        {tags?.length > 0 && (
+          <div className="mt-3 flex flex-wrap gap-1.5">
+            {tags.slice(0, 3).map(({ name }) => (
+              <span
+                key={name}
+                className="rounded-full border border-line px-2.5 py-1 font-mono text-[9px] tracking-wide text-ash"
+              >
+                {name}
+              </span>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <div className="hidden items-center gap-5 md:flex">
+        {images?.[0] && (
+          <Image
+            src={images[0].src}
+            alt={images[0].words}
+            width={104}
+            height={68}
+            className="h-[68px] w-[104px] rounded-lg border border-line object-cover opacity-70 transition-opacity group-hover:opacity-100"
+          />
+        )}
+        {link && (
+          <span className="text-[14px] text-ash transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-ink">
+            ↗
+          </span>
+        )}
+      </div>
+    </Wrapper>
+  );
+}
+
 export default function Home() {
   const posts = getAllBlogPosts();
   const craft = getAllCraft();
@@ -39,84 +96,63 @@ export default function Home() {
   return (
     <div className="pt-12 md:pt-20">
       {/* Hero */}
-      <section data-x="hero">
+      <section
+        data-x="hero"
+        className="grid items-start gap-12 lg:grid-cols-[1fr_minmax(0,420px)] lg:gap-16"
+      >
         <Reveal>
           <p className="font-mono text-[10px] tracking-[3px] text-ash">
             SREENIVAS SONTHENA · TECH LEAD @ INTRIPID
           </p>
+          <h1 className="mt-5 max-w-[560px] font-mono text-[26px] font-bold leading-[1.3] tracking-tight text-ink md:text-[32px]">
+            From crazy idea to shipped product —{" "}
+            <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
+              I build the whole thing
+            </span>
+            .
+          </h1>
+          <p className="mt-5 max-w-[480px] text-[14px] leading-relaxed text-dim">
+            Design, engineering, and everything in between. Currently leading
+            frontend at Intripid, building Tia — an AI travel assistant that
+            turns vague ideas into booked trips.
+          </p>
+
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <a
+              href={`mailto:${SITE.email}`}
+              className="rounded-lg bg-ink px-5 py-2.5 font-mono text-[12px] font-bold text-bg transition-transform hover:-translate-y-0.5"
+            >
+              Get in touch →
+            </a>
+            <Link
+              href="/craft"
+              className="rounded-lg border border-line-mid px-5 py-2.5 font-mono text-[12px] text-dim transition-colors hover:border-line-bright hover:text-ink"
+            >
+              Enter the lab
+            </Link>
+          </div>
+
+          <div className="mt-12 flex gap-10">
+            {STATS.map(({ number, label }) => (
+              <div key={label}>
+                <p className="font-mono text-[26px] font-bold leading-none text-ink">
+                  {number}
+                </p>
+                <p className="mt-2 font-mono text-[9.5px] tracking-wide text-ash">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
         </Reveal>
 
-        <h1 className="mt-7 font-mono text-[clamp(38px,6vw,66px)] font-bold leading-[1.06] tracking-[-0.03em] text-ink">
-          <RevealLine delay={0.05}>
-            From{" "}
-            <em className="font-serif font-medium italic tracking-[-0.01em]">
-              crazy idea
-            </em>{" "}
-            to
-          </RevealLine>
-          <RevealLine delay={0.16}>
-            <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
-              shipped product
-            </span>{" "}
-            —
-          </RevealLine>
-          <RevealLine delay={0.27}>I build the whole thing.</RevealLine>
-        </h1>
-
-        <div className="mt-12 grid items-start gap-12 lg:grid-cols-[1fr_minmax(0,420px)] lg:gap-16">
-          <Reveal delay={0.2}>
-            <p className="max-w-[480px] text-[14.5px] leading-relaxed text-dim">
-              Design, engineering, and everything in between. Currently leading
-              frontend at Intripid, building Tia — an AI travel assistant that
-              turns vague ideas into booked trips.
-            </p>
-
-            <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Magnetic>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="inline-block rounded-lg bg-ink px-5 py-2.5 font-mono text-[12px] font-bold text-bg"
-                >
-                  Get in touch →
-                </a>
-              </Magnetic>
-              <Magnetic>
-                <Link
-                  href="/craft"
-                  className="inline-block rounded-lg border border-line-mid px-5 py-2.5 font-mono text-[12px] text-dim transition-colors hover:border-line-bright hover:text-ink"
-                >
-                  Enter the lab
-                </Link>
-              </Magnetic>
-            </div>
-
-            <div className="mt-12 flex gap-10">
-              {STATS.map(({ number, label }) => (
-                <div key={label}>
-                  <p className="font-mono text-[26px] font-bold leading-none text-ink">
-                    {number}
-                  </p>
-                  <p className="mt-2 font-mono text-[9.5px] tracking-wide text-ash">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.3}>
-            <HeroArtifact />
-          </Reveal>
-        </div>
+        <Reveal delay={0.15}>
+          <HeroArtifact />
+        </Reveal>
       </section>
 
-      {/* Marquee */}
-      <div className="mt-16">
-        <Marquee />
-      </div>
-
       {/* Now strip */}
-      <Reveal delay={0.1} className="mt-14">
+      <Reveal delay={0.1} className="mt-16">
         <Link
           href="/now"
           data-x="now-strip"
@@ -136,33 +172,35 @@ export default function Home() {
       </Reveal>
 
       {/* Selected work */}
-      <section data-x="selected-work" className="mt-24">
+      <section data-x="selected-work" className="mt-20">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[3px] text-ash">
             SELECTED WORK
           </p>
-          <h2 className="mt-4 mb-10 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-            Products I&apos;ve{" "}
-            <em className="font-serif font-medium italic">shipped</em>
+          <h2 className="mt-3 mb-8 font-mono text-[20px] font-bold tracking-tight text-ink">
+            Products I&apos;ve shipped
           </h2>
         </Reveal>
-        <Reveal>
-          <WorkList items={Data} />
-        </Reveal>
+        <div className="border-b border-line">
+          {Data.map((item, index) => (
+            <Reveal key={item.Name}>
+              <WorkRow item={item} index={index} />
+            </Reveal>
+          ))}
+        </div>
       </section>
 
       {/* Craft strip */}
       {craft.length > 0 && (
-        <section data-x="craft" className="mt-24">
+        <section data-x="craft" className="mt-20">
           <Reveal>
             <div className="flex items-baseline justify-between">
               <div>
                 <p className="font-mono text-[10px] tracking-[3px] text-ash">
                   THE LAB
                 </p>
-                <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-                  Experiments in{" "}
-                  <em className="font-serif font-medium italic">progress</em>
+                <h2 className="mt-3 font-mono text-[20px] font-bold tracking-tight text-ink">
+                  Experiments in progress
                 </h2>
               </div>
               <Link
@@ -172,7 +210,7 @@ export default function Home() {
                 all experiments →
               </Link>
             </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
               {craft.slice(0, 3).map(({ slug, frontmatter }) => (
                 <Link
                   key={slug}
@@ -201,15 +239,15 @@ export default function Home() {
       )}
 
       {/* Writing */}
-      <section data-x="writing" className="mt-24">
+      <section data-x="writing" className="mt-20">
         <Reveal>
           <div className="flex items-baseline justify-between">
             <div>
               <p className="font-mono text-[10px] tracking-[3px] text-ash">
                 WRITING
               </p>
-              <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-                Recent <em className="font-serif font-medium italic">thoughts</em>
+              <h2 className="mt-3 font-mono text-[20px] font-bold tracking-tight text-ink">
+                Recent thoughts
               </h2>
             </div>
             <Link
@@ -219,7 +257,7 @@ export default function Home() {
               all posts →
             </Link>
           </div>
-          <div className="mt-10 border-b border-line">
+          <div className="mt-8 border-b border-line">
             {posts.slice(0, 5).map(({ slug, frontmatter }) => (
               <Link
                 key={slug}
