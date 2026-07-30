@@ -53,7 +53,7 @@ export default function Home() {
           </p>
         </Reveal>
 
-        <h1 className="mt-7 font-mono text-[clamp(38px,6vw,66px)] font-bold leading-[1.06] tracking-[-0.03em] text-ink">
+        <h1 className="mt-7 max-w-[780px] font-mono text-[clamp(26px,3.8vw,38px)] font-bold leading-[1.35] tracking-[-0.6px] text-ink">
           <RevealLine delay={0.05}>
             From{" "}
             <em className="font-serif font-medium italic tracking-[-0.01em]">
@@ -154,7 +154,7 @@ export default function Home() {
       <section data-x="selected-work" className="mt-24">
         <Reveal>
           <SectionLabel>selected work</SectionLabel>
-          <h2 className="mt-4 mb-10 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+          <h2 className="mt-4 mb-10 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
             Products I&apos;ve shipped
           </h2>
         </Reveal>
@@ -170,7 +170,7 @@ export default function Home() {
             <div className="flex items-baseline justify-between">
               <div>
                 <SectionLabel>the lab</SectionLabel>
-                <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+                <h2 className="mt-4 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
                   Experiments in progress
                 </h2>
               </div>
@@ -215,7 +215,7 @@ export default function Home() {
           <div className="flex items-baseline justify-between">
             <div>
               <SectionLabel>writing</SectionLabel>
-              <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+              <h2 className="mt-4 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
                 Recent thoughts
               </h2>
             </div>

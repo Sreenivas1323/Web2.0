@@ -11,7 +11,7 @@ export default function SiteFooter() {
         <Magnetic strength={0.12}>
           <a
             href={`mailto:${SITE.email}`}
-            className="group mt-5 inline-block font-mono text-[clamp(28px,4.6vw,54px)] font-bold leading-[1.1] tracking-[-0.02em] text-ink"
+            className="group mt-5 inline-block font-mono text-[clamp(24px,3.2vw,34px)] font-bold leading-[1.35] tracking-[-0.5px] text-ink"
           >
             Let&apos;s build something{" "}
             <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
