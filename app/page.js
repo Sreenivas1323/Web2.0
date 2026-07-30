@@ -12,10 +12,17 @@ import { getAllCraft } from "../src/lib/craft";
 import { SITE } from "../src/site";
 
 const STATS = [
-  { number: "4+", label: "years building products" },
-  { number: "3", label: "companies shipped at" },
-  { number: "25", label: "person team led" },
+  { key: "years_building_products", value: "4+" },
+  { key: "companies_shipped_at", value: "3" },
+  { key: "largest_team_led", value: "25 people" },
 ];
+
+const SectionLabel = ({ children }) => (
+  <p className="font-mono text-[11px] tracking-wide text-ash">
+    <span className="select-none text-ash/60">{"// "}</span>
+    {children}
+  </p>
+);
 
 const STATUS_COLOR = {
   shipped: "bg-green",
@@ -90,18 +97,26 @@ export default function Home() {
               </Magnetic>
             </div>
 
-            <div className="mt-12 flex gap-10">
-              {STATS.map(({ number, label }) => (
-                <div key={label}>
-                  <p className="font-mono text-[26px] font-bold leading-none text-ink">
-                    {number}
-                  </p>
-                  <p className="mt-2 font-mono text-[9.5px] tracking-wide text-ash">
-                    {label}
-                  </p>
+            <dl className="mt-12 max-w-[420px] space-y-2.5 font-mono text-[11.5px]">
+              {STATS.map(({ key, value }) => (
+                <div key={key} className="flex items-baseline gap-3">
+                  <dt className="text-ash">{key}</dt>
+                  <span
+                    aria-hidden
+                    className="flex-1 border-b border-dotted border-line-mid"
+                  />
+                  <dd className="font-bold text-ink">{value}</dd>
                 </div>
               ))}
-            </div>
+            </dl>
+
+            <p className="mt-8 font-mono text-[10.5px] text-ash">
+              psst — press{" "}
+              <kbd className="rounded border border-line-mid px-1.5 py-0.5 text-[10px] text-dim">
+                ⌘K
+              </kbd>{" "}
+              · this site has an x-ray mode
+            </p>
           </Reveal>
 
           <Reveal delay={0.3}>
@@ -123,8 +138,8 @@ export default function Home() {
           className="group flex flex-wrap items-center gap-3 rounded-xl border border-line px-5 py-4 transition-colors hover:border-line-mid"
         >
           <span className="h-1.5 w-1.5 rounded-full bg-green shadow-[0_0_8px_rgba(74,222,128,0.7)]" />
-          <span className="font-mono text-[10px] tracking-[2px] text-dim">
-            NOW
+          <span className="font-mono text-[11px] tracking-wide text-dim">
+            now
           </span>
           <span className="text-[12.5px] text-dim">
             Shipping Tia v1 · exploring agent UX patterns · writing more
@@ -138,12 +153,9 @@ export default function Home() {
       {/* Selected work */}
       <section data-x="selected-work" className="mt-24">
         <Reveal>
-          <p className="font-mono text-[10px] tracking-[3px] text-ash">
-            SELECTED WORK
-          </p>
+          <SectionLabel>selected work</SectionLabel>
           <h2 className="mt-4 mb-10 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-            Products I&apos;ve{" "}
-            <em className="font-serif font-medium italic">shipped</em>
+            Products I&apos;ve shipped
           </h2>
         </Reveal>
         <Reveal>
@@ -157,12 +169,9 @@ export default function Home() {
           <Reveal>
             <div className="flex items-baseline justify-between">
               <div>
-                <p className="font-mono text-[10px] tracking-[3px] text-ash">
-                  THE LAB
-                </p>
+                <SectionLabel>the lab</SectionLabel>
                 <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-                  Experiments in{" "}
-                  <em className="font-serif font-medium italic">progress</em>
+                  Experiments in progress
                 </h2>
               </div>
               <Link
@@ -205,11 +214,9 @@ export default function Home() {
         <Reveal>
           <div className="flex items-baseline justify-between">
             <div>
-              <p className="font-mono text-[10px] tracking-[3px] text-ash">
-                WRITING
-              </p>
+              <SectionLabel>writing</SectionLabel>
               <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
-                Recent <em className="font-serif font-medium italic">thoughts</em>
+                Recent thoughts
               </h2>
             </div>
             <Link
