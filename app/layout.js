@@ -1,11 +1,10 @@
 import "./globals.css";
 
 import CommandPalette from "../src/components/CommandPalette";
-import Cursor from "../src/components/Cursor";
 import SiteFooter from "../src/components/SiteFooter";
 import SiteHeader from "../src/components/SiteHeader";
 import { SITE, SOCIALS } from "../src/site";
-import { inter, monolisa, newsreader } from "./fonts";
+import { inter, monolisa } from "./fonts";
 
 export const metadata = {
   metadataBase: new URL(SITE.url),
@@ -67,10 +66,7 @@ const personJsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html
-      lang="en"
-      className={`${monolisa.variable} ${inter.variable} ${newsreader.variable}`}
-    >
+    <html lang="en" className={`${monolisa.variable} ${inter.variable}`}>
       <body>
         <script
           type="application/ld+json"
@@ -80,8 +76,6 @@ export default function RootLayout({ children }) {
         <main className="mx-auto max-w-[1080px] px-4">{children}</main>
         <SiteFooter />
         <CommandPalette />
-        <Cursor />
-        <div aria-hidden className="grain" />
       </body>
     </html>
   );

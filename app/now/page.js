@@ -63,8 +63,7 @@ export default function Now() {
       <Reveal>
         <p className="font-mono text-[10px] tracking-[3px] text-ash">NOW</p>
         <h1 className="mt-5 font-mono text-[clamp(28px,4.6vw,48px)] font-bold leading-tight tracking-[-0.02em] text-ink">
-          What I&apos;m doing{" "}
-          <em className="font-serif font-medium italic">right now</em>
+          What I&apos;m doing right now
         </h1>
         <p className="mt-4 max-w-[560px] text-[13.5px] leading-[1.8] text-dim">
           A snapshot of where my attention is. Inspired by Derek Sivers&apos;{" "}

@@ -82,15 +82,8 @@ export default function About() {
       <Reveal>
         <p className="font-mono text-[10px] tracking-[3px] text-ash">ABOUT</p>
         <h1 className="mt-6 max-w-[820px] font-mono text-[clamp(28px,4.6vw,48px)] font-bold leading-[1.2] tracking-[-0.02em] text-ink">
-          I started with{" "}
-          <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
-            gears and motors
-          </em>
-          . Now I build with{" "}
-          <em className="bg-gradient-to-r from-pink to-blue bg-clip-text font-serif font-medium italic text-transparent">
-            pixels and code
-          </em>
-          .
+          I started with gears and motors. Now I build with pixels and
+          code.
         </h1>
       </Reveal>
 

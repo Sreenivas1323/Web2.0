@@ -19,10 +19,7 @@ export default function SiteHeader() {
           href="/"
           className="font-mono text-[13px] font-bold tracking-tight text-ink"
         >
-          sreenivas
-          <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
-            .
-          </span>
+          sreenivas<span className="text-ash">.</span>
         </Link>
 
         <nav className="hidden items-center gap-6 md:flex">
