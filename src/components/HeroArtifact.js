@@ -139,7 +139,7 @@ const Msg = ({ delay, children, user }) => (
     transition={{ delay, duration: 0.3 }}
     className={
       user
-        ? "ml-auto max-w-[70%] rounded-2xl rounded-br-md bg-gradient-to-r from-pink to-blue px-3.5 py-2.5 text-[11px] leading-relaxed text-white"
+        ? "ml-auto max-w-[70%] rounded-2xl rounded-br-md bg-ink px-3.5 py-2.5 text-[11px] leading-relaxed text-bg"
         : "max-w-[75%] rounded-2xl rounded-bl-md border border-line bg-white/[0.04] px-3.5 py-2.5 text-[11px] leading-relaxed text-ink"
     }
   >
@@ -151,11 +151,11 @@ function ShipStage() {
   return (
     <div className="flex h-full flex-col p-5">
       <div className="mb-4 flex items-center gap-2.5">
-        <span className="h-7 w-7 rounded-full bg-gradient-to-br from-pink to-blue" />
+        <span className="h-7 w-7 rounded-full border border-line-mid bg-white/10" />
         <div>
           <p className="font-mono text-[11px] font-bold text-ink">Tia</p>
           <p className="flex items-center gap-1.5 text-[9px] text-dim">
-            <span className="h-1.5 w-1.5 rounded-full bg-green shadow-[0_0_6px_rgba(74,222,128,0.8)]" />
+            <span className="h-1.5 w-1.5 rounded-full bg-green" />
             planning your trip
           </p>
         </div>
@@ -179,7 +179,7 @@ function ShipStage() {
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ delay: 1.8, duration: 0.3 }}
-          className="flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-pink to-blue text-[13px] text-white shadow-[0_0_18px_rgba(252,70,107,0.35)]"
+          className="flex h-10 w-10 items-center justify-center rounded-full bg-ink text-[13px] text-bg"
         >
           ↑
         </motion.div>
@@ -229,7 +229,7 @@ export default function HeroArtifact() {
               <span
                 key={`${id}-progress`}
                 onAnimationEnd={next}
-                className="absolute bottom-0 left-0 h-px w-full origin-left bg-gradient-to-r from-pink to-blue"
+                className="absolute bottom-0 left-0 h-px w-full origin-left bg-ink"
                 style={{
                   animation: `heroProgress ${STAGE_MS}ms linear`,
                   animationPlayState: paused ? "paused" : "running",
@@ -237,7 +237,7 @@ export default function HeroArtifact() {
               />
             )}
             {i === index && reduceMotion && (
-              <span className="absolute bottom-0 left-0 h-px w-full bg-gradient-to-r from-pink to-blue" />
+              <span className="absolute bottom-0 left-0 h-px w-full bg-ink" />
             )}
           </button>
         ))}

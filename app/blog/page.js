@@ -27,8 +27,7 @@ export default function BlogIndex() {
       <Reveal>
         <p className="font-mono text-[10px] tracking-[3px] text-ash">WRITING</p>
         <h1 className="mt-5 font-mono text-[clamp(28px,4.6vw,48px)] font-bold leading-tight tracking-[-0.02em] text-ink">
-          Writing &amp;{" "}
-          <em className="font-serif font-medium italic">reflections</em>
+          Writing &amp; reflections
         </h1>
         <p className="mt-4 max-w-[560px] text-[13.5px] leading-[1.8] text-dim">
           Notes on building products, engineering leadership, and the

@@ -1,8 +1,6 @@
 import Link from "next/link";
 
 import HeroArtifact from "../src/components/HeroArtifact";
-import Magnetic from "../src/components/Magnetic";
-import Marquee from "../src/components/Marquee";
 import Reveal from "../src/components/Reveal";
 import RevealLine from "../src/components/RevealLine";
 import WorkList from "../src/components/WorkList";
@@ -53,20 +51,9 @@ export default function Home() {
           </p>
         </Reveal>
 
-        <h1 className="mt-7 font-mono text-[clamp(38px,6vw,66px)] font-bold leading-[1.06] tracking-[-0.03em] text-ink">
-          <RevealLine delay={0.05}>
-            From{" "}
-            <em className="font-serif font-medium italic tracking-[-0.01em]">
-              crazy idea
-            </em>{" "}
-            to
-          </RevealLine>
-          <RevealLine delay={0.16}>
-            <span className="bg-gradient-to-r from-pink to-blue bg-clip-text text-transparent">
-              shipped product
-            </span>{" "}
-            —
-          </RevealLine>
+        <h1 className="mt-7 max-w-[780px] font-mono text-[clamp(26px,3.8vw,38px)] font-bold leading-[1.35] tracking-[-0.6px] text-ink">
+          <RevealLine delay={0.05}>From crazy idea to</RevealLine>
+          <RevealLine delay={0.16}>shipped product —</RevealLine>
           <RevealLine delay={0.27}>I build the whole thing.</RevealLine>
         </h1>
 
@@ -79,22 +66,18 @@ export default function Home() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
-              <Magnetic>
-                <a
-                  href={`mailto:${SITE.email}`}
-                  className="inline-block rounded-lg bg-ink px-5 py-2.5 font-mono text-[12px] font-bold text-bg"
-                >
-                  Get in touch →
-                </a>
-              </Magnetic>
-              <Magnetic>
-                <Link
-                  href="/craft"
-                  className="inline-block rounded-lg border border-line-mid px-5 py-2.5 font-mono text-[12px] text-dim transition-colors hover:border-line-bright hover:text-ink"
-                >
-                  Enter the lab
-                </Link>
-              </Magnetic>
+              <a
+                href={`mailto:${SITE.email}`}
+                className="inline-block rounded-lg bg-ink px-5 py-2.5 font-mono text-[12px] font-bold text-bg"
+              >
+                Get in touch →
+              </a>
+              <Link
+                href="/craft"
+                className="inline-block rounded-lg border border-line-mid px-5 py-2.5 font-mono text-[12px] text-dim transition-colors hover:border-line-bright hover:text-ink"
+              >
+                Enter the lab
+              </Link>
             </div>
 
             <dl className="mt-12 max-w-[420px] space-y-2.5 font-mono text-[11.5px]">
@@ -125,19 +108,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Marquee */}
-      <div className="mt-16">
-        <Marquee />
-      </div>
-
       {/* Now strip */}
-      <Reveal delay={0.1} className="mt-14">
+      <Reveal delay={0.1} className="mt-20">
         <Link
           href="/now"
           data-x="now-strip"
           className="group flex flex-wrap items-center gap-3 rounded-xl border border-line px-5 py-4 transition-colors hover:border-line-mid"
         >
-          <span className="h-1.5 w-1.5 rounded-full bg-green shadow-[0_0_8px_rgba(74,222,128,0.7)]" />
+          <span className="h-1.5 w-1.5 rounded-full bg-green" />
           <span className="font-mono text-[11px] tracking-wide text-dim">
             now
           </span>
@@ -154,7 +132,7 @@ export default function Home() {
       <section data-x="selected-work" className="mt-24">
         <Reveal>
           <SectionLabel>selected work</SectionLabel>
-          <h2 className="mt-4 mb-10 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+          <h2 className="mt-4 mb-10 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
             Products I&apos;ve shipped
           </h2>
         </Reveal>
@@ -170,7 +148,7 @@ export default function Home() {
             <div className="flex items-baseline justify-between">
               <div>
                 <SectionLabel>the lab</SectionLabel>
-                <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+                <h2 className="mt-4 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
                   Experiments in progress
                 </h2>
               </div>
@@ -215,7 +193,7 @@ export default function Home() {
           <div className="flex items-baseline justify-between">
             <div>
               <SectionLabel>writing</SectionLabel>
-              <h2 className="mt-4 font-mono text-[clamp(24px,3.5vw,36px)] font-bold tracking-tight text-ink">
+              <h2 className="mt-4 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
                 Recent thoughts
               </h2>
             </div>
