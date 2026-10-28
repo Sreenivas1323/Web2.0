@@ -124,16 +124,21 @@ export function pinFromUrl(raw, depth = 0) {
   return null;
 }
 
+const BOILERPLATE =
+  /(swiggy|zomato|tap the link|open the link|download|shared (a|my) location|save my address|one[- ]time|valid for|using the link)/i;
+
 // Strip links, emoji-only lines and app boilerplate so what's left reads as
-// the address someone typed.
+// the address someone typed. Swiggy's address share labels it "Address: …".
 export function addressFrom(text) {
-  return (text || "")
+  const labelled = /^\s*address\s*[:\-]\s*(.+)$/im.exec(text || "");
+  const source = labelled ? labelled[1] : text || "";
+  return source
     .replace(URL_RE, "")
     .replace(new RegExp(PAIR_RE.source, "g"), "")
     .split("\n")
     .map((line) => line.trim())
     .filter((line) => /[a-z0-9]/i.test(line))
-    .filter((line) => !/(swiggy|zomato|tap the link|open the link|download|shared (a|my) location)/i.test(line))
+    .filter((line) => labelled || !BOILERPLATE.test(line))
     .join(", ")
     .replace(/\s*,\s*,+/g, ",")
     .replace(/\s{2,}/g, " ")
@@ -141,32 +146,71 @@ export function addressFrom(text) {
     .slice(0, 240);
 }
 
+// Swiggy's "save my address" links resolve to a page that only hands the
+// address to a logged-in Swiggy app, so there's no pin to pull out of them.
+export function isLockedLink(raw) {
+  try {
+    const url = new URL(raw);
+    return (
+      url.hostname === "swiggy.onelink.me" ||
+      (/(^|\.)swiggy\.com$/.test(url.hostname) && url.pathname.startsWith("/ofo/address"))
+    );
+  } catch {
+    return false;
+  }
+}
+
+// Geocoders choke on flat numbers and building names, so try the full
+// address first and then peel leading parts off: "B 001, SVS Orchids,
+// Kalkere, Bengaluru…" → "SVS Orchids, Kalkere…" → "Kalkere, Bengaluru…".
+export function geocodeCandidates(address) {
+  const parts = address
+    .split(/,|\s\/\s/)
+    .map((p) => p.trim())
+    .filter(Boolean);
+  // A leading unit number ("B 001", "Flat 4B", "#12") never matches.
+  const unit = /^(flat|apt|unit|door|no\.?|#)?\s*[a-z]?[\s-]?\d+[a-z]?$/i;
+  const out = [];
+  for (let i = 0; i < parts.length - 2; i++) {
+    if (i === 0 && unit.test(parts[0])) continue;
+    out.push(parts.slice(i).join(", "));
+  }
+  return out.length ? out : [address];
+}
+
 export function parseShare(text) {
   const urls = extractUrls(text);
+  const address = addressFrom(text);
+  const locked = urls.some(isLockedLink);
   for (const url of urls) {
     const found = pinFromUrl(url);
-    if (found) return { pin: found, urls, address: addressFrom(text) };
+    if (found) return { pin: found, urls, address, locked };
   }
   const loose = pairFrom(text.replace(URL_RE, ""), "text");
-  return { pin: loose, urls, address: addressFrom(text) };
+  return { pin: loose, urls, address, locked };
 }
 
 export function formatPin({ lat, lng }) {
   return `${lat.toFixed(6)},${lng.toFixed(6)}`;
 }
 
-// Zomato mints its own share links server-side, so the most reliable handoff
-// is a pin Zomato's "Add address" search will accept plus a maps link the
-// recipient can sanity-check. Keep every outgoing format in one place.
-export function buildZomatoHandoff(pinValue, address) {
-  const coords = formatPin(pinValue);
-  const maps = `https://www.google.com/maps/search/?api=1&query=${coords}`;
+// Zomato mints its own share links server-side, so the handoff is what its
+// "Add address" search takes: the written address first, with a pin and
+// maps link to check against. Keep every outgoing format in one place.
+// An approximate (area-level) pin is only for eyeballing: the maps link then
+// searches the full address, which Google resolves better than we can.
+export function buildZomatoHandoff(pinValue, address, { approximate = false } = {}) {
+  const coords = pinValue ? formatPin(pinValue) : null;
+  const maps =
+    coords && !(approximate && address)
+      ? `https://www.google.com/maps/search/?api=1&query=${coords}`
+      : `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address)}`;
   const lines = [
     "📍 Delivery location for Zomato",
     address || null,
-    `Pin: ${coords}`,
+    coords ? `${approximate ? "Approx. area pin" : "Pin"}: ${coords}` : null,
     maps,
-    "Zomato → Add address → paste the pin in the search bar.",
+    `Zomato → Add address → search ${address ? "the address" : "the pin"}, then confirm the pin on the map.`,
   ].filter(Boolean);
   return {
     coords,
