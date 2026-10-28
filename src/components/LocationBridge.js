@@ -303,15 +303,22 @@ export default function LocationBridge() {
                 Share…
               </button>
             )}
+            {/* Zomato has no public "add address" link, but its app claims
+                every zomato.com URL — so copy what to paste, then hand off. */}
             <a
               href={handoff.zomato}
               target="_blank"
               rel="noreferrer"
+              onClick={() => copy("OPEN", trimmedAddress || handoff.coords)}
               className="rounded-full border border-line px-3.5 py-1.5 font-mono text-[10px] tracking-wide text-ash transition-colors hover:border-line-mid hover:text-ink"
             >
-              Open Zomato ↗
+              {copiedKey === "OPEN" ? "Copied — opening Zomato ↗" : "Copy address & open Zomato ↗"}
             </a>
           </div>
+          <p className="mt-3 font-mono text-[10px] leading-relaxed text-ash">
+            In Zomato: tap the location at the top → Add address → paste, then
+            nudge the pin onto the building.
+          </p>
         </div>
       )}
     </div>

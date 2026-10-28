@@ -214,6 +214,8 @@ export function buildZomatoHandoff(pinValue, address, { approximate = false } = 
   return {
     coords,
     maps,
+    // Zomato's app claims every www.zomato.com URL (iOS AASA + Android
+    // assetlinks), so this opens the app where installed, the site otherwise.
     zomato: "https://www.zomato.com/",
     message: lines.join("\n"),
   };
