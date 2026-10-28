@@ -57,7 +57,15 @@ export async function GET(request) {
 
   const hops = [current.href];
   for (let i = 0; i < MAX_HOPS; i++) {
-    if (DEAD_ENDS.includes(current.hostname) || isLockedLink(current.href)) {
+    // Check the URL itself first: a hop can carry the pin in its params
+    // (or in a nested deep link) even when the page behind it is locked.
+    const fromUrl = pinFromUrl(current.href);
+    if (fromUrl) return Response.json({ pin: fromUrl, hops });
+
+    if (DEAD_ENDS.includes(current.hostname)) {
+      return Response.json({ pin: null, hops });
+    }
+    if (isLockedLink(current.href)) {
       return Response.json({ pin: null, locked: true, hops });
     }
     if (!isAllowed(current)) {
@@ -66,9 +74,6 @@ export async function GET(request) {
         { status: 400 }
       );
     }
-
-    const fromUrl = pinFromUrl(current.href);
-    if (fromUrl) return Response.json({ pin: fromUrl, hops });
 
     let res;
     try {

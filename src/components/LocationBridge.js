@@ -19,7 +19,7 @@ function osmEmbed({ lat, lng }) {
 
 export default function LocationBridge() {
   const [input, setInput] = useState("");
-  const [remote, setRemote] = useState({ url: null, status: "idle", pin: null, error: null });
+  const [remote, setRemote] = useState({ url: null, status: "idle", pin: null, locked: false, error: null });
   const [geo, setGeo] = useState({ status: "idle", pin: null, precision: null, error: null });
   const [address, setAddress] = useState("");
   const [copiedKey, setCopiedKey] = useState(null);
@@ -36,16 +36,16 @@ export default function LocationBridge() {
   }, [parsed.address]);
 
   // Short links carry no coordinates until they're followed, which a browser
-  // can't do cross-origin — hand those to the unfurl route. Swiggy's
-  // address-share links are skipped: their pin sits behind the app's login.
+  // can't do cross-origin — hand those to the unfurl route, which reports
+  // whether the link ended on Swiggy's login-only address page.
   const shortLink = !parsed.pin && !parsed.locked ? parsed.urls[0] : null;
   useEffect(() => {
     if (!shortLink) {
-      setRemote({ url: null, status: "idle", pin: null, error: null });
+      setRemote({ url: null, status: "idle", pin: null, locked: false, error: null });
       return;
     }
     const controller = new AbortController();
-    setRemote({ url: shortLink, status: "loading", pin: null, error: null });
+    setRemote({ url: shortLink, status: "loading", pin: null, locked: false, error: null });
     const timer = setTimeout(() => {
       fetch(`/api/unfurl?url=${encodeURIComponent(shortLink)}`, {
         signal: controller.signal,
@@ -56,12 +56,13 @@ export default function LocationBridge() {
             url: shortLink,
             status: data.pin ? "found" : "missing",
             pin: data.pin,
+            locked: !!data.locked,
             error: data.error || null,
           })
         )
         .catch((err) => {
           if (err.name === "AbortError") return;
-          setRemote({ url: shortLink, status: "missing", pin: null, error: "Couldn't reach the link." });
+          setRemote({ url: shortLink, status: "missing", pin: null, locked: false, error: "Couldn't reach the link." });
         });
     }, 350);
     return () => {
@@ -125,6 +126,7 @@ export default function LocationBridge() {
     navigator.share?.({ text: handoff.message }).catch(() => {});
   };
 
+  const locked = parsed.locked || remote.locked;
   let status = null;
   if (input.trim() && !parsed.pin && !remote.pin) {
     if (remote.status === "loading") {
@@ -132,16 +134,23 @@ export default function LocationBridge() {
     } else if (geo.status === "loading") {
       status = (
         <span className="text-dim">
-          {parsed.locked
+          {locked
             ? "Swiggy keeps this pin behind its app login — locating the written address instead…"
             : "Locating the written address…"}
         </span>
       );
-    } else if (geo.status === "found" && parsed.locked) {
+    } else if (geo.status === "found" && locked) {
       status = (
         <span className="text-dim">
           Swiggy keeps this pin behind its app login, so it&apos;s placed from
           the written address.
+        </span>
+      );
+    } else if (!parsed.address && locked) {
+      status = (
+        <span className="text-pink">
+          Swiggy only opens this link inside its app. Paste the whole message
+          — the address line is what carries over.
         </span>
       );
     } else if (!parsed.address && remote.status === "missing") {
@@ -149,13 +158,6 @@ export default function LocationBridge() {
         <span className="text-pink">
           {remote.error || "No location inside that link."} Try pasting the
           whole share message.
-        </span>
-      );
-    } else if (!parsed.address && parsed.locked) {
-      status = (
-        <span className="text-pink">
-          Swiggy only opens this link inside its app. Paste the whole message
-          — the address line is what carries over.
         </span>
       );
     } else if (!parsed.address && !parsed.urls.length) {
@@ -280,7 +282,7 @@ export default function LocationBridge() {
             ))}
           </div>
 
-          <pre className="mt-4 whitespace-pre-wrap rounded-lg border border-line px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-dim">
+          <pre className="mt-4 whitespace-pre-wrap break-all rounded-lg border border-line px-3 py-2.5 font-mono text-[11.5px] leading-relaxed text-dim">
             {handoff.message}
           </pre>
 
