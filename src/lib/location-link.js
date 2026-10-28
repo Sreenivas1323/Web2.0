@@ -146,15 +146,14 @@ export function addressFrom(text) {
     .slice(0, 240);
 }
 
-// Swiggy's "save my address" links resolve to a page that only hands the
-// address to a logged-in Swiggy app, so there's no pin to pull out of them.
+// Swiggy's "save my address" page (/ofo/address/<name>/<id>) only hands the
+// address to a logged-in Swiggy app, so a link landing there has no pin.
+// Short links (onelink etc.) aren't judged here — where they land can vary
+// per link, so the unfurl route follows them and checks each hop.
 export function isLockedLink(raw) {
   try {
     const url = new URL(raw);
-    return (
-      url.hostname === "swiggy.onelink.me" ||
-      (/(^|\.)swiggy\.com$/.test(url.hostname) && url.pathname.startsWith("/ofo/address"))
-    );
+    return /(^|\.)swiggy\.com$/.test(url.hostname) && url.pathname.startsWith("/ofo/address");
   } catch {
     return false;
   }
