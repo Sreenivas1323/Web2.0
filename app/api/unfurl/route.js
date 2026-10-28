@@ -1,4 +1,4 @@
-import { pinFromMarkup, pinFromUrl } from "../../../src/lib/location-link";
+import { isLockedLink, pinFromUrl } from "../../../src/lib/location-link";
 
 // Follows a share short link (swig.gy, onelink, maps.app.goo.gl…) to wherever
 // it lands and reports the pin. Only known link hosts are followed, at every
@@ -19,8 +19,11 @@ const ALLOWED_HOSTS = [
 ];
 const MAX_HOPS = 6;
 const MAX_BYTES = 512 * 1024;
+// App-install links bounce phones to the App Store; a desktop UA gets the
+// web fallback, which is where any coordinates would live.
 const UA =
-  "Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.0 Mobile/15E148 Safari/604.1";
+  "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0 Safari/537.36";
+const DEAD_ENDS = ["apps.apple.com", "itunes.apple.com", "play.google.com"];
 
 function isAllowed(url) {
   if (url.protocol !== "https:" && url.protocol !== "http:") return false;
@@ -54,6 +57,9 @@ export async function GET(request) {
 
   const hops = [current.href];
   for (let i = 0; i < MAX_HOPS; i++) {
+    if (DEAD_ENDS.includes(current.hostname) || isLockedLink(current.href)) {
+      return Response.json({ pin: null, locked: true, hops });
+    }
     if (!isAllowed(current)) {
       return Response.json(
         { error: `Won't follow links to ${current.hostname}.`, hops },
@@ -88,8 +94,14 @@ export async function GET(request) {
     const softRedirect =
       /http-equiv=["']?refresh["']?[^>]*url=([^"'>\s]+)/i.exec(body)?.[1] ||
       /window\.location(?:\.href)?\s*=\s*["']([^"']+)["']/i.exec(body)?.[1];
-    const pin = pinFromMarkup(body);
-    if (pin) return Response.json({ pin, hops });
+    // Only trust explicit place markup — app shells embed a default city
+    // centre as "lat"/"lng" in their bootstrap state.
+    const meta =
+      /place:location:latitude["']?\s+content=["'](-?[\d.]+)[\s\S]{0,200}?place:location:longitude["']?\s+content=["'](-?[\d.]+)/i.exec(body) ||
+      /!3d(-?\d+\.\d+)!4d(-?\d+\.\d+)/.exec(body);
+    if (meta) {
+      return Response.json({ pin: { lat: Number(meta[1]), lng: Number(meta[2]), source: "page" }, hops });
+    }
     if (softRedirect) {
       current = new URL(softRedirect.replace(/&amp;/g, "&"), current);
       hops.push(current.href);

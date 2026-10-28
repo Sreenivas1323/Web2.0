@@ -20,6 +20,7 @@ function osmEmbed({ lat, lng }) {
 export default function LocationBridge() {
   const [input, setInput] = useState("");
   const [remote, setRemote] = useState({ url: null, status: "idle", pin: null, error: null });
+  const [geo, setGeo] = useState({ status: "idle", pin: null, precision: null, error: null });
   const [address, setAddress] = useState("");
   const [copiedKey, setCopiedKey] = useState(null);
   const [canShare, setCanShare] = useState(false);
@@ -35,8 +36,9 @@ export default function LocationBridge() {
   }, [parsed.address]);
 
   // Short links carry no coordinates until they're followed, which a browser
-  // can't do cross-origin — hand those to the unfurl route.
-  const shortLink = !parsed.pin ? parsed.urls[0] : null;
+  // can't do cross-origin — hand those to the unfurl route. Swiggy's
+  // address-share links are skipped: their pin sits behind the app's login.
+  const shortLink = !parsed.pin && !parsed.locked ? parsed.urls[0] : null;
   useEffect(() => {
     if (!shortLink) {
       setRemote({ url: null, status: "idle", pin: null, error: null });
@@ -68,8 +70,49 @@ export default function LocationBridge() {
     };
   }, [shortLink]);
 
-  const pin = parsed.pin || remote.pin;
-  const handoff = pin ? buildZomatoHandoff(pin, address.trim()) : null;
+  // No pin in the link → fall back to geocoding the written address.
+  const linkDone = !shortLink || remote.status === "missing";
+  const geocodeQuery =
+    !parsed.pin && linkDone && parsed.address.length >= 6 ? parsed.address : null;
+  useEffect(() => {
+    if (!geocodeQuery) {
+      setGeo({ status: "idle", pin: null, precision: null, error: null });
+      return;
+    }
+    const controller = new AbortController();
+    setGeo({ status: "loading", pin: null, precision: null, error: null });
+    const timer = setTimeout(() => {
+      fetch(`/api/geocode?q=${encodeURIComponent(geocodeQuery)}`, {
+        signal: controller.signal,
+      })
+        .then((res) => res.json())
+        .then((data) =>
+          setGeo({
+            status: data.pin ? "found" : "missing",
+            pin: data.pin,
+            precision: data.precision || null,
+            error: data.error || null,
+          })
+        )
+        .catch((err) => {
+          if (err.name === "AbortError") return;
+          setGeo({ status: "missing", pin: null, precision: null, error: null });
+        });
+    }, 500);
+    return () => {
+      clearTimeout(timer);
+      controller.abort();
+    };
+  }, [geocodeQuery]);
+
+  const pin = parsed.pin || remote.pin || geo.pin;
+  const trimmedAddress = address.trim();
+  const handoff =
+    pin || trimmedAddress
+      ? buildZomatoHandoff(pin, trimmedAddress, {
+          approximate: pin?.source === "address" && geo.precision !== "exact",
+        })
+      : null;
 
   const copy = (key, text) => {
     navigator.clipboard?.writeText(text).then(() => {
@@ -83,20 +126,45 @@ export default function LocationBridge() {
   };
 
   let status = null;
-  if (input.trim() && !pin) {
+  if (input.trim() && !parsed.pin && !remote.pin) {
     if (remote.status === "loading") {
       status = <span className="text-dim">Following the link…</span>;
-    } else if (remote.status === "missing") {
+    } else if (geo.status === "loading") {
+      status = (
+        <span className="text-dim">
+          {parsed.locked
+            ? "Swiggy keeps this pin behind its app login — locating the written address instead…"
+            : "Locating the written address…"}
+        </span>
+      );
+    } else if (geo.status === "found" && parsed.locked) {
+      status = (
+        <span className="text-dim">
+          Swiggy keeps this pin behind its app login, so it&apos;s placed from
+          the written address.
+        </span>
+      );
+    } else if (!parsed.address && remote.status === "missing") {
       status = (
         <span className="text-pink">
           {remote.error || "No location inside that link."} Try pasting the
           whole share message.
         </span>
       );
-    } else if (!parsed.urls.length) {
+    } else if (!parsed.address && parsed.locked) {
       status = (
         <span className="text-pink">
-          No link or coordinates found yet.
+          Swiggy only opens this link inside its app. Paste the whole message
+          — the address line is what carries over.
+        </span>
+      );
+    } else if (!parsed.address && !parsed.urls.length) {
+      status = <span className="text-pink">No link, address or coordinates found yet.</span>;
+    } else if (geo.status === "missing") {
+      status = (
+        <span className="text-amber">
+          {geo.error || "Couldn't place that address on the map."} You can
+          still search it in Zomato.
         </span>
       );
     }
@@ -138,40 +206,59 @@ export default function LocationBridge() {
             <p className="font-mono text-[9.5px] tracking-[1.5px] text-dim">
               FOR ZOMATO
             </p>
-            <p className="font-mono text-[9.5px] tracking-wide text-ash">
-              pin from {pin.source === "page" ? "the landing page" : pin.source}
-            </p>
+            {pin && (
+              <p className="font-mono text-[9.5px] tracking-wide text-ash">
+                {pin.source === "address"
+                  ? geo.precision === "exact"
+                    ? "pin from address"
+                    : "approximate pin · area match"
+                  : `pin from ${pin.source === "page" ? "the landing page" : pin.source}`}
+              </p>
+            )}
           </div>
 
-          <div className="mt-3 overflow-hidden rounded-lg border border-line">
-            <iframe
-              key={formatPin(pin)}
-              title="Pin preview"
-              src={osmEmbed(pin)}
-              loading="lazy"
-              className="block h-48 w-full grayscale invert-[0.92] hue-rotate-180"
-            />
-          </div>
+          {pin && (
+            <div className="mt-3 overflow-hidden rounded-lg border border-line">
+              <iframe
+                key={formatPin(pin)}
+                title="Pin preview"
+                src={osmEmbed(pin)}
+                loading="lazy"
+                className="block h-48 w-full grayscale invert-[0.92] hue-rotate-180"
+              />
+            </div>
+          )}
 
           <label
             htmlFor="address-input"
             className="mt-4 block font-mono text-[9px] tracking-[1.5px] text-dim"
           >
-            ADDRESS LINE (EDITABLE)
+            SEARCH THIS IN ZOMATO (EDITABLE)
           </label>
-          <input
-            id="address-input"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            placeholder="Flat, floor, landmark — optional"
-            className="mt-1.5 w-full rounded-lg border border-line bg-transparent px-3 py-2 text-[13px] text-ink outline-none transition-colors focus:border-line-bright"
-          />
+          <div className="mt-1.5 flex gap-2">
+            <input
+              id="address-input"
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
+              placeholder="Flat, floor, landmark — optional"
+              className="min-w-0 flex-1 rounded-lg border border-line bg-transparent px-3 py-2 text-[13px] text-ink outline-none transition-colors focus:border-line-bright"
+            />
+            {trimmedAddress && (
+              <button
+                type="button"
+                onClick={() => copy("ADDRESS", trimmedAddress)}
+                className="shrink-0 rounded-lg border border-line px-3 font-mono text-[9.5px] text-ash transition-colors hover:border-line-mid hover:text-dim"
+              >
+                {copiedKey === "ADDRESS" ? "copied" : "copy"}
+              </button>
+            )}
+          </div>
 
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {[
-              ["PIN", handoff.coords],
+              handoff.coords && ["PIN", handoff.coords],
               ["MAP LINK", handoff.maps],
-            ].map(([label, value]) => (
+            ].filter(Boolean).map(([label, value]) => (
               <button
                 key={label}
                 type="button"
