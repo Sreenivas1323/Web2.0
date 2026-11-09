@@ -21,6 +21,27 @@ export const Data = [
     ],
   },
   {
+    Name: "Maayana",
+    web: "maayana.com",
+    link: "https://maayana.com/",
+    tags: [
+      { name: "2026", color: "gray" },
+      { name: "Production OS", color: "purple" },
+      { name: "Film Tech", color: "red" },
+    ],
+    desc: [
+      {
+        data: "Run the whole movie production in real time: script breakdown in Telugu, Tamil, Hindi and English, stripboards, call sheets on phones, budget burn, and on-set footage review. Built alongside a feature film that's shooting right now.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/work/maayana.jpg",
+        words: "Maayana homepage: run the whole movie production in real time, with a call sheet",
+      },
+    ],
+  },
+  {
     Name: "Nageshwar Rao Paripo!!",
     web: "nageshwarraoparipo.com",
     link: "https://www.nageshwarraoparipo.com",
@@ -38,6 +59,48 @@ export const Data = [
       {
         src: "/images/work/nageshwar-rao-paripo.jpg",
         words: "Nageshwar Rao Paripo crowdfunding site hero with hand-drawn collage art",
+      },
+    ],
+  },
+  {
+    Name: "AriaQR",
+    web: "ariaqr.com",
+    link: "https://ariaqr.com/",
+    tags: [
+      { name: "Picture QR", color: "blue" },
+      { name: "Product & Brand", color: "purple" },
+      { name: "Print-ready", color: "teal" },
+    ],
+    desc: [
+      {
+        data: "Turn any image into a QR code people actually want to scan — your artwork as the code, checked on real decoders at print size before you download. Editable links, cookie-free scan analytics, and an API.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/work/ariaqr.jpg",
+        words: "AriaQR homepage: make the code the art",
+      },
+    ],
+  },
+  {
+    Name: "Hello Aria",
+    web: "helloaria.io",
+    link: "https://helloaria.io/",
+    tags: [
+      { name: "AI Assistant", color: "blue" },
+      { name: "WhatsApp · Web · iOS", color: "teal" },
+      { name: "Full-stack", color: "purple" },
+    ],
+    desc: [
+      {
+        data: "An AI productivity assistant that lives in your chats. Reminders, tasks, notes and meeting minutes over WhatsApp, Telegram, Slack and email, with a web dashboard and an iOS app.",
+      },
+    ],
+    images: [
+      {
+        src: "/images/work/helloaria.jpg",
+        words: "Hello Aria homepage: stop chasing tasks, start finishing them",
       },
     ],
   },
