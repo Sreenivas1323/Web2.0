@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">Final cut vs next deploy</title>
+  <desc id="d">Left: a film strip stamped final cut, locked forever. Right: a git commit line that never ends.</desc>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FC466B"/><stop offset="1" stop-color="#3F5EFB"/></linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#fff" stroke-opacity="0.035"/></pattern>
+    <radialGradient id="glowP" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FC466B" stop-opacity=".35"/><stop offset="1" stop-color="#FC466B" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowB" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3F5EFB" stop-opacity=".35"/><stop offset="1" stop-color="#3F5EFB" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0b0b"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="60" y="70" font-size="13" letter-spacing="4" fill="#666">// WRITING · 03</text>
+    <text x="1140" y="70" font-size="13" letter-spacing="2" fill="#666" text-anchor="end">SSAISREENIVAS.IN</text>
+  </g>
+
+  <circle cx="300" cy="420" r="220" fill="url(#glowP)"/>
+  <circle cx="900" cy="420" r="220" fill="url(#glowB)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="60" y="160" font-size="46" font-weight="700" fill="#ededed">A film gets a final cut.</text>
+    <text x="60" y="222" font-size="46" font-weight="700" fill="url(#brand)">An app gets a next deploy.</text>
+  </g>
+  <rect x="70" y="316" width="480" height="168" rx="8" fill="#111" stroke="#fff" stroke-opacity=".12"/>
+  <rect x="80" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="80" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="110" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="110" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="140" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="140" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="170" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="170" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="200" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="200" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="230" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="230" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="260" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="260" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="290" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="290" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="320" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="320" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="350" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="350" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="380" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="380" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="410" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="410" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="440" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="440" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="470" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="470" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="500" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="500" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="530" y="326" width="14" height="10" rx="2" fill="#0b0b0b"/><rect x="530" y="474" width="14" height="10" rx="2" fill="#0b0b0b"/>
+  <rect x="88" y="350" width="76" height="100" rx="4" fill="#1a1a1a" stroke="#fff" stroke-opacity=".08"/><rect x="180" y="350" width="76" height="100" rx="4" fill="#1a1a1a" stroke="#fff" stroke-opacity=".08"/><rect x="272" y="350" width="76" height="100" rx="4" fill="#1a1a1a" stroke="#fff" stroke-opacity=".08"/><rect x="364" y="350" width="76" height="100" rx="4" fill="#1a1a1a" stroke="#fff" stroke-opacity=".08"/><rect x="456" y="350" width="76" height="100" rx="4" fill="#1a1a1a" stroke="#fff" stroke-opacity=".08"/>
+  <g transform="rotate(-8 310 400)">
+    <rect x="190" y="372" width="240" height="56" rx="6" fill="none" stroke="#FC466B" stroke-width="3"/>
+    <text x="310" y="410" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="24" font-weight="700" fill="#FC466B" text-anchor="middle">FINAL CUT</text>
+  </g>
+  <text x="310" y="530" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="14" fill="#999" text-anchor="middle">locked · forever · yours</text>
+  <path d="M680 400 H1150" stroke="#3F5EFB" stroke-opacity=".5" stroke-width="2" stroke-dasharray="2 6"/>
+  <circle cx="700" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="762" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="824" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="886" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="948" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="1010" cy="400" r="9" fill="#3F5EFB" fill-opacity="1"/><circle cx="1072" cy="400" r="6" fill="#3F5EFB" fill-opacity="0.5"/><circle cx="1134" cy="400" r="6" fill="#3F5EFB" fill-opacity="0.38"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace"><text x="700" y="440" font-size="11" fill="#666" text-anchor="middle">v1.0</text><text x="762" y="440" font-size="11" fill="#666" text-anchor="middle">v1.0.1</text><text x="824" y="440" font-size="11" fill="#666" text-anchor="middle">v1.1</text><text x="886" y="440" font-size="11" fill="#666" text-anchor="middle">v1.2</text><text x="948" y="440" font-size="11" fill="#666" text-anchor="middle">v2.0</text><text x="1010" y="440" font-size="11" fill="#666" text-anchor="middle">v2.0.3</text>
+    <text x="1150" y="406" font-size="22" fill="#3F5EFB" text-anchor="end">∞</text>
+    <text x="900" y="530" font-size="14" fill="#999" text-anchor="middle">never done · always changeable</text>
+  </g>
+</svg>

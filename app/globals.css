@@ -134,6 +134,61 @@ body {
   padding: 0;
 }
 
+.article img {
+  border: 1px solid var(--color-line);
+  border-radius: 12px;
+  display: block;
+  height: auto;
+  margin: 2rem 0 0.75rem;
+  width: 100%;
+}
+
+.article figure {
+  margin: 2.25rem 0;
+}
+
+.article figure img {
+  margin: 0;
+}
+
+.article figcaption {
+  color: var(--color-ash);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 0.75rem;
+  text-align: center;
+}
+
+.article hr {
+  border: 0;
+  border-top: 1px solid var(--color-line);
+  margin: 3rem 0;
+}
+
+.article table {
+  border-collapse: collapse;
+  font-size: 13.5px;
+  margin: 1.75rem 0;
+  width: 100%;
+}
+
+.article th,
+.article td {
+  border-bottom: 1px solid var(--color-line);
+  padding: 0.6rem 0.75rem 0.6rem 0;
+  text-align: left;
+  vertical-align: top;
+}
+
+.article th {
+  color: var(--color-ink);
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
 .article blockquote {
   border-left: 2px solid var(--color-line-bright);
   color: var(--color-dim);

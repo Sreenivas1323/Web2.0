@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="t d">
+  <title id="t">From patient intern to colleague</title>
+  <desc id="d">Two org chart cards: AI as an intern in 2023, and AI as a colleague in 2026, joined by an arrow.</desc>
+  <defs>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FC466B"/><stop offset="1" stop-color="#3F5EFB"/></linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#fff" stroke-opacity="0.035"/></pattern>
+    <radialGradient id="glowP" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#FC466B" stop-opacity=".35"/><stop offset="1" stop-color="#FC466B" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glowB" cx=".5" cy=".5" r=".5"><stop offset="0" stop-color="#3F5EFB" stop-opacity=".35"/><stop offset="1" stop-color="#3F5EFB" stop-opacity="0"/></radialGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#0b0b0b"/>
+  <rect width="1200" height="630" fill="url(#grid)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="60" y="70" font-size="13" letter-spacing="4" fill="#666">// WRITING · 01</text>
+    <text x="1140" y="70" font-size="13" letter-spacing="2" fill="#666" text-anchor="end">SSAISREENIVAS.IN</text>
+  </g>
+
+  <circle cx="900" cy="360" r="260" fill="url(#glowB)"/>
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+    <text x="60" y="160" font-size="50" font-weight="700" fill="#ededed">From patient intern</text>
+    <text x="60" y="222" font-size="50" font-weight="700" fill="url(#brand)">to colleague.</text>
+  </g>
+  <!-- intern card -->
+  <g transform="translate(60 330)">
+    <rect width="380" height="200" rx="16" fill="#121212" stroke="#fff" stroke-opacity=".1"/>
+    <circle cx="56" cy="62" r="26" fill="none" stroke="#666" stroke-width="2" stroke-dasharray="4 5"/>
+    <text x="44" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" fill="#666">AI</text>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <text x="100" y="56" font-size="20" font-weight="700" fill="#999">Intern</text>
+      <text x="100" y="82" font-size="13" fill="#666">reports to: you · 2023</text>
+      <text x="32" y="130" font-size="13" fill="#666">✓ never tired, never offended</text>
+      <text x="32" y="156" font-size="13" fill="#666">✓ needs every step spelled out</text>
+      <text x="32" y="182" font-size="13" fill="#666">✗ you review every single line</text>
+    </g>
+  </g>
+  <path d="M470 430 H640" stroke="url(#brand)" stroke-width="3" stroke-dasharray="3 9" stroke-linecap="round"/>
+  <path d="M630 420 L646 430 L630 440" fill="none" stroke="#3F5EFB" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- colleague card -->
+  <g transform="translate(680 330)">
+    <rect width="460" height="200" rx="16" fill="#141418" stroke="#3F5EFB" stroke-opacity=".6"/>
+    <circle cx="56" cy="62" r="26" fill="url(#brand)"/>
+    <text x="44" y="70" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="20" font-weight="700" fill="#0b0b0b">AI</text>
+    <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <text x="100" y="56" font-size="20" font-weight="700" fill="#ededed">Colleague</text>
+      <text x="100" y="82" font-size="13" fill="#999">works with: you · 2026</text>
+      <text x="32" y="130" font-size="13" fill="#ededed">✓ owns a ticket end to end</text>
+      <text x="32" y="156" font-size="13" fill="#ededed">✓ pushes back on a bad plan</text>
+      <text x="32" y="182" font-size="13" fill="#ededed">→ you review the PR, not the keystrokes</text>
+    </g>
+    <circle cx="420" cy="40" r="6" fill="#4ade80"/>
+  </g>
+</svg>

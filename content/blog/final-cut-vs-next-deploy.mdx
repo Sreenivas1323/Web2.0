@@ -1,0 +1,95 @@
+---
+title: "Final Cut vs. Next Deploy: Creative Work Ends, Products Don't"
+date: "2026-11-09"
+description: "A film gets locked. An app never does. Working on both this year made me wonder whether being able to change everything is software's biggest strength or its quietest weakness."
+cover: "/images/blog/final-cut-vs-next-deploy.svg"
+coverAlt: "A film strip stamped final cut next to a git commit line that never ends"
+---
+
+This year I worked on two very different things at the same time.
+
+One was a film. I did the titles and motion graphics for the demo of *Nageshwar Rao Paripo!!*, an indie Telugu film, plus the website that's raising money for the full feature. The other was software: product work with payments, bookings, calendars and dashboards.
+
+Switching between them every day, I kept noticing one difference that I think explains almost everything else:
+
+**Creative work ends. Product work can always be changed.**
+
+A film gets a final cut. A poster goes to print. A song gets mastered and released. Once it's out, it's out. You can't push a hotfix to a cinema hall.
+
+An app is never finished. There's always a next deploy, a v1.0.1, a "we'll fix it in the next sprint." That one word, *can*, changes how everyone involved thinks and works. So is it a good thing or a bad thing? I've gone back and forth. Here's where I've landed for now.
+
+## How finality changes the work
+
+When I was making title cards for the film, every frame got a level of care I almost never give to a UI screen. The kerning on a single Telugu word. The exact frame where text comes in on a beat. Whether the glow on the neon looks like 1994 or like a 2024 Instagram filter.
+
+Why? Because once the cut is locked, that frame is that frame forever. Someone will watch it in five years and it'll look exactly like it does today. There's no "we'll tweak it later."
+
+That pressure does something good: **it makes you decide.** You can't ship three options and A/B test them. You pick one, you commit, and you stand behind it. A lot of great creative work comes from that commitment. The constraint forces taste.
+
+## How changeability changes the work
+
+Software works the other way. Because everything can change, we've built a whole culture around changing it:
+
+- **Ship the MVP**, learn, iterate.
+- **Feature flags**, so you can turn things off.
+- **A/B tests**, so you don't have to decide; the data decides.
+- **Continuous deploys**, sometimes dozens a day.
+
+<figure>
+  <img src="/images/blog/two-timelines.svg" alt="Two timelines. A film: script, shoot, edit, final cut, then a long flat line labelled 'the work lives'. An app: launch, then endless small commits labelled 'the work keeps changing'." width="1200" height="520" />
+  <figcaption>Two timelines. A film's life starts when work stops. An app's work never stops.</figcaption>
+</figure>
+
+And honestly, this is a superpower. It means:
+
+- **Mistakes are cheap.** A bug in a booking flow that would be a disaster in print is a 10-minute fix.
+- **Real users shape the product.** You don't have to guess what people want; you watch and adjust.
+- **Small teams can compete.** You don't need a perfect launch. You need a fast loop.
+
+Most of what I've built would never have worked if it had to be right on day one.
+
+## The case for "bad thing"
+
+But I've also seen what changeability does to people's standards, including mine.
+
+**"We'll fix it later" becomes a habit, not a plan.** Later rarely comes. The rough edge you were going to polish in v1.1 is still there in v3.
+
+**Nothing feels finished, so nothing feels like yours.** A filmmaker can point at a film and say "I made that." It's harder to point at an app you've been changing for three years. Which version did you make?
+
+**Decisions get pushed to data that doesn't exist.** "Let's test both" is sometimes wisdom and sometimes just avoiding a decision. A director can't A/B test the ending.
+
+**Craft gets cut first.** When everything is temporary, it's hard to justify spending a day on the animation curve of one button. In a film, that day is obviously worth it.
+
+## The case for "good thing"
+
+But then I look at the film side and see the opposite problem.
+
+**Finality is terrifying.** A whole team can spend years on something, and if the cut doesn't work, there's no patch. Many creative projects never ship *because* the stakes of finishing are so high.
+
+**You can't learn from the audience in time.** By the time people react, the work is locked. The lessons only help the next project.
+
+**Gatekeepers decide early.** Because finished work is expensive, money flows only to people who already seem "safe". That's exactly why our film is crowdfunding a demo first. It's borrowing a trick from software: ship something small, prove it, then raise for the real thing.
+
+## What I'm taking from each side
+
+Doing both at once has made me want to steal from each.
+
+**From film to software:**
+
+- **Have a "final cut" moment.** Even in software, pick moments where something is *done*: a launch, a version, a page. Polish it like it'll never change, even though it might.
+- **Make a decision before you test.** Have an opinion. Test to check it, not to avoid having one.
+- **Give craft a budget.** Decide up front which 10% of the product gets film-level care, like onboarding, the hero screen, or the moment of payment, and protect that time.
+
+**From software to film:**
+
+- **Ship smaller, earlier.** A demo film, a teaser, a reel. Get it in front of people before the whole thing is locked.
+- **Build feedback loops.** Our crowdfunding site is basically a product: it shows us who cares, what they respond to, and what they'll pay for, before the final cut.
+- **Version the parts that can be versioned.** The film is final; the website, trailers and posts around it don't have to be.
+
+## So, good or bad?
+
+My honest answer: **changeability is good for the product and risky for the craft.**
+
+The ability to change things is what lets software learn, and learning beats perfection most of the time. But it quietly removes the pressure that makes people care about details. Unless you put that pressure back on purpose, you end up with products that work well and feel like nothing.
+
+So I try to work like this now: build like it's software and finish like it's film. Iterate as fast as you want, but every so often, lock something, stand behind it, and make it worth looking at in five years.

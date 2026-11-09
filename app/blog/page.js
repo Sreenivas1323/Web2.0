@@ -36,14 +36,15 @@ export default function BlogIndex() {
       </Reveal>
 
       <Reveal delay={0.1} className="mt-14 border-b border-line">
-        {posts.map(({ slug, frontmatter }) => (
+        {posts.map(({ slug, frontmatter, readingTime }) => (
           <Link
             key={slug}
             href={`/blog/${slug}`}
-            className="group block border-t border-line py-7 transition-colors hover:bg-white/[0.02]"
+            className="group grid items-center gap-6 border-t border-line py-7 transition-colors hover:bg-white/[0.02] md:grid-cols-[1fr_200px]"
           >
+            <div>
             <p className="font-mono text-[9.5px] tracking-[1.5px] text-ash">
-              {formatDate(frontmatter.date)}
+              {formatDate(frontmatter.date)} · {readingTime} MIN
             </p>
             <h2 className="mt-2 font-mono text-[16px] font-bold text-ink decoration-line-bright underline-offset-4 group-hover:underline">
               {frontmatter.title}
@@ -51,6 +52,18 @@ export default function BlogIndex() {
             <p className="mt-2 max-w-[600px] text-[13px] leading-relaxed text-dim">
               {frontmatter.description}
             </p>
+            </div>
+            {frontmatter.cover && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={frontmatter.cover}
+                alt=""
+                width={1200}
+                height={630}
+                loading="lazy"
+                className="hidden w-full rounded-lg border border-line transition-opacity group-hover:opacity-90 md:block"
+              />
+            )}
           </Link>
         ))}
       </Reveal>
