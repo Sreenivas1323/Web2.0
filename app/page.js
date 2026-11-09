@@ -121,7 +121,7 @@ export default function Home() {
             now
           </span>
           <span className="text-[12.5px] text-dim">
-            Shipping Subler · building open-source agent tools · writing more
+            Shipping Subler and Maayana · open-source agent tools · writing more
           </span>
           <span className="ml-auto font-mono text-[10px] text-ash transition-colors group-hover:text-ink">
             /now →
