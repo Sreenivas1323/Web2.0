@@ -13,8 +13,10 @@ export function getBlogPostBySlug(slug) {
   const fullPath = path.join(BLOG_PATH, `${realSlug}.mdx`);
   const fileContents = fs.readFileSync(fullPath, 'utf8');
   const { data, content } = matter(fileContents);
+  const words = content.split(/\s+/).filter(Boolean).length;
+  const readingTime = Math.max(1, Math.round(words / 230));
 
-  return { slug: realSlug, frontmatter: data, content };
+  return { slug: realSlug, frontmatter: data, content, readingTime };
 }
 
 export function getAllBlogPosts() {

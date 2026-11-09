@@ -1,0 +1,94 @@
+---
+title: "AI Got Promoted: From Patient Intern to Colleague"
+date: "2026-11-09"
+description: "For two years I described AI as the most patient intern I'd ever had. That's not true anymore. Here's what changed, and how I work with it now."
+cover: "/images/blog/ai-intern-to-colleague.svg"
+coverAlt: "Two org chart cards: AI as an intern in 2023 and AI as a colleague in 2026"
+---
+
+For about two years, whenever someone asked how I use AI, I gave the same answer:
+
+> It's like having the most patient intern in the world.
+
+I meant it as a compliment. I've worked in small startup teams where I was the one reviewing interns and juniors, so I know what a good intern is like. They're eager, they never say "that's not my job", and they'll redo something five times without getting annoyed. They also need everything spelled out. You give them a clear task with clear edges, and then you check every single line they hand back.
+
+That was AI in 2023 and most of 2024. I did the thinking, broke the problem into tiny pieces, and fed them in one at a time. The intern typed fast. I reviewed slowly. The net gain was real, but it was a typing gain, not a thinking gain.
+
+Somewhere in the last year, that description stopped being true. I didn't notice the exact day. I just noticed I'd stopped talking to it like an intern.
+
+## What an intern actually is
+
+Before I explain what changed, it's worth being precise about what "intern" meant. I don't mean "junior" or "bad". I mean a specific working relationship:
+
+- **You own the outcome.** The intern owns the keystrokes.
+- **You hold all the context.** The intern only knows what you told them in this conversation.
+- **You review the work, not the result.** You read every line, because you can't trust the judgment behind it yet.
+- **They never push back.** Ask for something dumb and you'll get a very well-formatted dumb thing.
+
+That last one is the real tell. A patient intern is patient partly because they don't have an opinion. When I asked an early model to build something the wrong way, it built it the wrong way, cheerfully, with comments.
+
+## What a colleague actually is
+
+A colleague is a different relationship, and the differences are the useful part:
+
+- **They own a piece of the outcome.** You hand over a ticket, not a step.
+- **They go and get the context they need.** They read the codebase, the docs and the old PRs before they start.
+- **You review the result.** You read the pull request, run it, and push back on decisions. You don't watch them type.
+- **They push back.** "Are you sure? This will break the export flow." That one sentence is worth more than a thousand lines of fast typing.
+
+<figure>
+  <img src="/images/blog/trust-ladder.svg" alt="A ladder with five rungs: autocomplete, intern, junior, colleague, and a question mark at the top" width="1200" height="560" />
+  <figcaption>The trust ladder. Every rung is about what you stop checking, not what it can type.</figcaption>
+</figure>
+
+## The day I noticed
+
+Here's a real example. This year I've been building payment flows: card vs. bank transfer, reminders, receipts, refunds, payouts. That's the kind of code where a small mistake costs someone real money.
+
+The old me would have done the whole design myself and asked AI to "write a function that does X". The new me writes something closer to a brief:
+
+> Payers who never finish checkout are going silent. Figure out where they drop, add tracked emails, reminders and failure notices, and don't email the org when a renter cancels a draft they never submitted.
+
+Then I go do something else. When I come back, there's a branch, a diff, and a short note saying, more or less: "I didn't add a reminder for bank transfers, because those take days to clear and a reminder on day one would confuse people. Want me to add one on day three instead?"
+
+That's not an intern. That's a colleague who read the code, understood the business, and flagged a decision they weren't sure was theirs to make.
+
+## What changed, technically
+
+Three things moved at once, and I think you need all three for the "colleague" feeling:
+
+1. **Context.** Models can now hold a whole feature in their head: the codebase, the conventions, the reason that weird function exists. An intern only knows the task. A colleague knows the system.
+2. **Tools.** They don't just suggest code anymore. They run the tests, read the error, grep for usages, open a PR. Acting on the world is the difference between advice and work.
+3. **Parallelism.** This one's underrated. I now run several agents at once, each on its own branch in its own git worktree, each on a different ticket. I liked it so much I built [an open-source tool for it](/open-source). You can't run five interns in parallel and stay sane. You *can* run five colleagues in parallel, because you only meet them at the PR.
+
+## How I work with a colleague (vs. an intern)
+
+My habits changed more than the tools did. Roughly:
+
+**I write briefs, not instructions.** An instruction is "add a column called `paid_at`". A brief is "the finance report shows the wrong payout date; it should be the day the money actually arrived". The brief leaves room for the colleague to find a better fix than the one I'd have dictated.
+
+**I define "done" up front.** Tests that must pass, screens that must look right, edge cases that must be handled. A colleague without a definition of done keeps polishing forever, just like a human one.
+
+**I review at the PR, and I review hard.** Not line by line for typos, but for decisions. Why this table? Why this retry policy? What happens when Stripe is down? If the answers are good, I merge. If they're not, I say so, exactly like I would with a person.
+
+**I let it disagree with me.** This was the hardest one. When it says "I think this is the wrong approach", my first reflex is still "just do what I said". Half the time, it's right.
+
+## Where the analogy breaks
+
+I don't want to oversell this. A colleague you met yesterday is still a colleague you met yesterday.
+
+- **It doesn't remember last week** unless you write it down for it. Good teams already do this with docs, READMEs and decision logs. Now those docs are load-bearing.
+- **It's confidently wrong sometimes,** and its wrong answers look exactly like its right answers. A human colleague who's guessing usually *sounds* like they're guessing. This one doesn't.
+- **It can't be accountable.** If the payout breaks, the email from the angry customer comes to me, not to the model. That's a whole topic of its own, and I wrote about it [here](/blog/ninety-nine-percent-and-the-one-percent-to-blame).
+
+## So what's my job now?
+
+If AI is the colleague, what am I? Honestly: closer to a tech lead than I was before, even on solo projects. My day is now mostly:
+
+- **Taste**: deciding what's worth building and what "good" looks like.
+- **Scoping**: turning a vague idea into briefs that can be worked on in parallel.
+- **Judgment**: reviewing, merging, rejecting, and owning the result.
+
+The typing is gone. The thinking got *more* important, not less, because a colleague will happily run fast in whatever direction you point them.
+
+Two years ago, I'd have told you AI made me faster. Today I'd tell you it made me a manager of a very small, very strange team. I'm still figuring out how to be good at that. But I've stopped calling it an intern. It earned the promotion.

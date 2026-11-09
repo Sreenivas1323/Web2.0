@@ -2,20 +2,80 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://ssaisreenivas.in/</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://ssaisreenivas.in/about</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://ssaisreenivas.in/blog</loc>
-    <lastmod>2025-01-16</lastmod>
+    <lastmod>2026-11-09</lastmod>
     <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/open-source</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/extras</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/craft</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/now</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/ai-from-intern-to-colleague</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/final-cut-vs-next-deploy</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/future-of-personal-ai</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/hyderabad-roads-never-an-infrastructure-problem</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/ninety-nine-percent-and-the-one-percent-to-blame</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://ssaisreenivas.in/blog/two-best-things-pirates-and-open-source</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>yearly</changefreq>
     <priority>0.6</priority>
   </url>
 </urlset>

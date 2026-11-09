@@ -34,7 +34,8 @@ This is a Next.js (App Router) portfolio website styled with Tailwind CSS v4 and
 - Image assets in `public/images/`
 
 ### Pages Structure
-- App Router under `app/`: home, `/about`, `/now`, `/blog`, `/blog/[slug]`, `/craft`, `/craft/[slug]`, custom `not-found`
+- App Router under `app/`: home, `/about`, `/now`, `/blog`, `/blog/[slug]`, `/craft`, `/craft/[slug]`, `/open-source`, `/extras` (travel + photos), custom `not-found`
+- Blog frontmatter supports `cover` / `coverAlt` (SVG/JPG in `public/images/blog/`); reading time is computed in `src/lib/blog.js`
 - Layout (`app/layout.js`) owns metadata defaults, JSON-LD person schema, header/footer/palette
 - All routes are statically generated (`generateStaticParams` for slugs)
 

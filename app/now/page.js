@@ -10,26 +10,26 @@ export const metadata = {
 // TODO(now-page): keep these fields fresh — update monthly. Pull real data
 // from Spotify / Goodreads / GitHub later if we want it automated.
 const NOW_DATA = {
-  lastUpdated: "April 2026",
+  lastUpdated: "November 2026",
   location: "Hyderabad, India",
   building: {
-    title: "Tia at Intripid",
+    title: "Subler",
     detail:
-      "Leading frontend for our AI travel assistant. Shipping the first end-to-end version this quarter.",
+      "Payments, invoicing and a new UI for a marketplace of school and non-profit space. On the side: Bantu, an open-source way to run a team of coding agents.",
   },
   focus: [
-    "Frontend architecture for AI-first products",
-    "Agent design patterns and tool-use UX",
-    "Writing more — moving from notes to published posts",
+    "Working with AI as a colleague, not an intern",
+    "Open-source tools for running agents in parallel",
+    "Writing more — five new posts this month",
   ],
   reading: [
     { title: "The Pragmatic Engineer", by: "Gergely Orosz" },
     { title: "Working in Public", by: "Nadia Eghbal" },
   ],
   shipping: [
-    "Tia v1 — internal beta",
-    "OpenClaw shell agent (see /craft)",
-    "Daily AI experiments cross-posted to X",
+    "Subler — new UI and payments",
+    "Bantu v0.1 alphas, Bujji and Claude Switcher (see /open-source)",
+    "Craft tools: timezone converter, Swiggy → Zomato",
   ],
   notLearning: [
     "Saying yes to things I shouldn't",

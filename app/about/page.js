@@ -29,11 +29,23 @@ const beliefs = [
 
 const timeline = [
   {
+    year: "2026",
+    role: "Full-stack Product Engineer",
+    company: "Subler",
+    desc: "Payments, payouts, invoicing, calendar sync and a new UI for a marketplace of school and non-profit space.",
+    isCurrent: true,
+  },
+  {
+    year: "2026",
+    role: "Titles, Motion & Web",
+    company: "Nageshwar Rao Paripo!! — Rágadi Productions",
+    desc: "Titles and motion graphics for the demo film, and the crowdfunding site for the full feature.",
+  },
+  {
     year: "2024",
     role: "Tech Lead",
     company: "Intripid",
-    desc: "Leading frontend development for an AI-powered travel platform.",
-    isCurrent: true,
+    desc: "Led frontend for Tia, an AI travel assistant, and the platform around it.",
   },
   {
     year: "2023",
@@ -73,7 +85,7 @@ const tools = [
 const story = [
   "I'm Sreenivas — a mechatronics engineer from India who fell in love with interfaces. My engineering degree taught me systems thinking: how mechanical, electrical, and software components work together. Turns out, that's exactly how great products are built too.",
   "I led a team of 25 to build an all-terrain vehicle from scratch for the FMAE-BAJA competition. That experience — designing physical systems under real constraints, coordinating across disciplines, shipping something that actually works — shaped everything I do in software today. The vehicle had to survive rough terrain. Good software has to survive real users. Same energy.",
-  "From there, I moved into product design and development. I've designed brand identities, built data visualization platforms, shipped financial wellness apps, and now I'm leading frontend at Intripid — where we're building the future of AI-powered travel. My work sits at the intersection of design and engineering, and I like it there.",
+  "From there, I moved into product design and development. I've designed brand identities, built data visualization platforms, shipped financial wellness apps, led frontend for Tia at Intripid, and now I'm shipping Subler and doing titles and motion for an indie Telugu film. A lot of what I build on the side ends up open source. My work sits at the intersection of design and engineering, and I like it there.",
 ];
 
 export default function About() {

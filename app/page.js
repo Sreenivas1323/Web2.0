@@ -47,7 +47,7 @@ export default function Home() {
       <section data-x="hero">
         <Reveal>
           <p className="font-mono text-[10px] tracking-[3px] text-ash">
-            SREENIVAS SONTHENA · TECH LEAD @ INTRIPID
+            SREENIVAS SONTHENA · DESIGN × ENGINEERING
           </p>
         </Reveal>
 
@@ -60,9 +60,10 @@ export default function Home() {
         <div className="mt-12 grid items-start gap-12 lg:grid-cols-[1fr_minmax(0,420px)] lg:gap-16">
           <Reveal delay={0.2}>
             <p className="max-w-[480px] text-[14.5px] leading-relaxed text-dim">
-              Design, engineering, and everything in between. Currently leading
-              frontend at Intripid, building Tia — an AI travel assistant that
-              turns vague ideas into booked trips.
+              Design, engineering, and everything in between. Lately: shipping
+              Subler, a marketplace for school and non-profit space, and the
+              titles and crowdfunding site for the Telugu indie film
+              Nageshwar Rao Paripo!!
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-3">
@@ -120,7 +121,7 @@ export default function Home() {
             now
           </span>
           <span className="text-[12.5px] text-dim">
-            Shipping Tia v1 · exploring agent UX patterns · writing more
+            Shipping Subler · building open-source agent tools · writing more
           </span>
           <span className="ml-auto font-mono text-[10px] text-ash transition-colors group-hover:text-ink">
             /now →

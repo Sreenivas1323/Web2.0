@@ -1,65 +1,62 @@
 export const Data = [
   {
-    Name: "Tia by Intripid",
-    web: "intripid.com",
-    link: "https://dev.intripid.co/",
+    Name: "Subler",
+    web: "getsubler.com",
+    link: "https://subler-ui-redesign.d2wwr42rewz6uo.amplifyapp.com",
     tags: [
-      {
-        name: "2025—26",
-        color: "gray",
-      },
-      {
-        name: "Tech Lead",
-        color: "purple",
-      },
-      {
-        name: "AI Assistant",
-        color: "blue",
-      },
+      { name: "2026", color: "gray" },
+      { name: "Full-stack Product", color: "purple" },
+      { name: "Payments & Ops", color: "blue" },
     ],
-
     desc: [
       {
-        data: "Leading frontend for Tia — Intripid's intelligent travel assistant. AI-powered conversations that turn vague travel ideas into bookable trips. Currently shipping the first version end-to-end.",
+        data: "A marketplace for school and non-profit space — gyms, fields, classrooms and studios, booked by the hour. I work across the stack: the new UI, Stripe payments and payouts, invoicing, calendar sync, analytics, and the status page that watches it all.",
       },
     ],
-
     images: [
       {
-        src: "/images/Intripid.png",
-        words: "Tia AI travel assistant interface",
+        src: "/images/work/subler.jpg",
+        words: "Subler homepage: a better way to share your space and build community",
       },
     ],
   },
   {
-    Name: "Intripid",
-    web: "intripid.com",
-    link: "https://dev.intripid.co/",
+    Name: "Nageshwar Rao Paripo!!",
+    web: "nageshwarraoparipo.com",
+    link: "https://www.nageshwarraoparipo.com",
     tags: [
-      {
-        name: "Tech Lead",
-        color: "purple",
-      },
-      {
-        name: "Frontend Development",
-        color: "teal",
-      },
-      {
-        name: "AI Flows & Interactions",
-        color: "blue",
-      },
+      { name: "2026", color: "gray" },
+      { name: "Titles & Motion", color: "red" },
+      { name: "Crowdfunding Site", color: "teal" },
     ],
-
     desc: [
       {
-        data: "Leading frontend development at Intripid — building an AI-powered travel platform that makes trip planning feel effortless. Shipping user interfaces, interaction patterns, and AI flows since October 2024.",
+        data: "A dystopian Telugu indie film by Rágadi Productions. I did the titles and motion graphics for the demo film — every frame with text in it — and designed and built the crowdfunding site: neon-grunge, CRT-TV, 90s chaos on purpose.",
       },
     ],
-
+    images: [
+      {
+        src: "/images/work/nageshwar-rao-paripo.jpg",
+        words: "Nageshwar Rao Paripo crowdfunding site hero with hand-drawn collage art",
+      },
+    ],
+  },
+  {
+    Name: "Tia by Intripid",
+    tags: [
+      { name: "2024—26 · Previously", color: "gray" },
+      { name: "Tech Lead", color: "purple" },
+      { name: "AI Assistant", color: "blue" },
+    ],
+    desc: [
+      {
+        data: "Led frontend for Tia, Intripid's AI travel assistant — conversations that turned vague travel ideas into bookable trips. Built the UI, interaction patterns and AI flows for the platform from October 2024.",
+      },
+    ],
     images: [
       {
         src: "/images/Intripid.png",
-        words: "Intripid travel platform interface with AI-powered trip planning",
+        words: "Tia AI travel assistant interface",
       },
     ],
   },

@@ -13,14 +13,15 @@ export const metadata = {
     template: "%s — Sreenivas Sonthena",
   },
   description:
-    "Mechatronics engineer turned Tech Lead. I build AI-powered products end-to-end — design, code, ship. Currently at Intripid.",
+    "Mechatronics engineer turned design engineer. I build products end-to-end — design, code, ship — and give a lot of it away as open source.",
   keywords: [
     "Tech Lead",
     "Product Designer",
     "Frontend Developer",
     "Design Engineer",
     "AI",
-    "Intripid",
+    "Subler",
+    "Open Source",
     "React",
     "Next.js",
   ],
@@ -59,7 +60,6 @@ const personJsonLd = {
   "@type": "Person",
   name: SITE.name,
   jobTitle: "Tech Lead",
-  worksFor: { "@type": "Organization", name: "Intripid" },
   url: SITE.url,
   sameAs: SOCIALS.map((s) => s.href),
 };
