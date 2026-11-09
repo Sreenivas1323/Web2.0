@@ -77,7 +77,7 @@ export default function CommandPalette() {
       >
         <Command.Input placeholder="Type a command or search…" />
         <Command.List>
-          <Command.Empty>Nothing found. Try “craft” or “xray”.</Command.Empty>
+          <Command.Empty>Nothing found. Try “writing” or “xray”.</Command.Empty>
 
           <Command.Group heading="Navigate">
             {NAV_LINKS.map(({ href, label }) => (

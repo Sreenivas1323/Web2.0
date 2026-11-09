@@ -2,6 +2,15 @@
 const nextConfig = {
   reactStrictMode: true,
   
+  // Craft and Now were retired; send old links somewhere useful
+  async redirects() {
+    return [
+      { source: '/craft', destination: '/open-source', permanent: true },
+      { source: '/craft/:path*', destination: '/open-source', permanent: true },
+      { source: '/now', destination: '/about', permanent: true },
+    ];
+  },
+
   // SEO optimizations
   async headers() {
     return [

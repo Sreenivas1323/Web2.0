@@ -8,12 +8,10 @@ export const SITE = {
 
 export const NAV_LINKS = [
   { href: "/", label: "Work" },
-  { href: "/craft", label: "Craft" },
   { href: "/blog", label: "Writing" },
   { href: "/open-source", label: "Open Source" },
   { href: "/extras", label: "Extras" },
   { href: "/about", label: "About" },
-  { href: "/now", label: "Now" },
 ];
 
 export const SOCIALS = [

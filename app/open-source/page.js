@@ -83,22 +83,11 @@ const PROJECTS = [
     license: "Public repo",
     stack: "Next.js · Tailwind v4 · MDX",
     blurb:
-      "Every page, the ⌘K palette, the x-ray mode, the craft tools. Read it, learn from it, see how the pieces fit.",
+      "Every page, the ⌘K palette, the x-ray mode. Read it, learn from it, see how the pieces fit.",
     why: "I learned web dev by reading other people's sites. Paying it forward.",
     links: [
       { label: "GitHub", href: "https://github.com/Sreenivas1323/Web2.0" },
     ],
-  },
-  {
-    name: "Craft tools",
-    status: "live",
-    statusLabel: "free, no login",
-    license: "In this repo",
-    stack: "Browser tools",
-    blurb:
-      "Small single-purpose tools: a timezone string converter, and a Swiggy → Zomato location bridge that carries your delivery address across apps.",
-    why: "Tiny annoyances deserve tiny, free fixes.",
-    links: [{ label: "Open the lab", href: "/craft" }],
   },
 ];
 

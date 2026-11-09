@@ -31,18 +31,6 @@
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://ssaisreenivas.in/craft</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://ssaisreenivas.in/now</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
     <loc>https://ssaisreenivas.in/blog/ai-from-intern-to-colleague</loc>
     <lastmod>2026-11-09</lastmod>
     <changefreq>yearly</changefreq>

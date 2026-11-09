@@ -8,13 +8,7 @@ Things mentioned in conversation but not yet built — to focus on day-to-day.
       Need real Tia screenshots for the home page work card.
 - [ ] **Real Tia link** — `dev.intripid.co` is the placeholder. Update once
       there's a public landing page.
-- [ ] **Real `/now` data** — the placeholders in `pages/now.js` (`NOW_DATA`)
-      need to be replaced with actual current state. Update monthly.
-- [ ] **More `/craft` entries** — only one sample exists
-      (`content/craft/openclaw-shell-agent.mdx`). The whole point of /craft
-      is the rolling feed of AI experiments / weekend builds.
-      Pattern to follow: short title, 1-paragraph description, status dot,
-      tags, optional demo + source links.
+
 
 ## Features to build later
 
