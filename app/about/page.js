@@ -29,7 +29,7 @@ const beliefs = [
 
 const timeline = [
   {
-    year: "2026",
+    year: "2026 — now",
     role: "Full-stack Product Engineer",
     company: "Subler",
     desc: "Payments, payouts, invoicing, calendar sync and a new UI for a marketplace of school and non-profit space.",
@@ -42,22 +42,22 @@ const timeline = [
     desc: "Titles and motion graphics for the demo film, and the crowdfunding site for the full feature.",
   },
   {
-    year: "2024",
+    year: "2024 — 26",
     role: "Tech Lead",
     company: "Intripid",
     desc: "Led frontend for Tia, an AI travel assistant, and the platform around it.",
-  },
-  {
-    year: "2023",
-    role: "Frontend Dev & Product Designer",
-    company: "LeafCraft Studios",
-    desc: "Designed and shipped financial wellness products from zero to launch.",
   },
   {
     year: "2022",
     role: "UI/UX & Brand Designer",
     company: "Datametrix",
     desc: "Built brand identity, marketing site, and data visualization platform.",
+  },
+  {
+    year: "2021 — 24",
+    role: "Frontend Dev & Product Designer",
+    company: "LeafCraft Studios",
+    desc: "Designed and shipped financial wellness products from zero to launch.",
   },
   {
     year: "2021",

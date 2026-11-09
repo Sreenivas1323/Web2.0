@@ -29,12 +29,13 @@ This is a Next.js (App Router) portfolio website styled with Tailwind CSS v4 and
 
 ### Content & Data
 - Project/portfolio data centralized in `src/Data.js`
-- Blog posts in `content/blog/*.mdx`, craft entries in `content/craft/*.mdx` (gray-matter frontmatter, read by `src/lib/blog.js` / `src/lib/craft.js`, rendered with `next-mdx-remote/rsc`)
+- Blog posts in `content/blog/*.mdx` (gray-matter frontmatter, read by `src/lib/blog.js`, rendered with `next-mdx-remote/rsc`)
 - Site constants (email, socials, nav links) in `src/site.js`
 - Image assets in `public/images/`
 
 ### Pages Structure
-- App Router under `app/`: home, `/about`, `/now`, `/blog`, `/blog/[slug]`, `/craft`, `/craft/[slug]`, `/open-source`, `/extras` (travel + photos), custom `not-found`
+- App Router under `app/`: home, `/about`, `/blog`, `/blog/[slug]`, `/open-source`, `/extras` (travel + photos), custom `not-found`
+- `/craft` and `/now` were removed (Nov 2026); `next.config.js` redirects old links to `/open-source` and `/about`
 - Blog frontmatter supports `cover` / `coverAlt` (SVG/JPG in `public/images/blog/`); reading time is computed in `src/lib/blog.js`
 - Layout (`app/layout.js`) owns metadata defaults, JSON-LD person schema, header/footer/palette
 - All routes are statically generated (`generateStaticParams` for slugs)
@@ -47,6 +48,5 @@ This is a Next.js (App Router) portfolio website styled with Tailwind CSS v4 and
 
 ## Roadmap (agreed direction)
 1. ~~Milestone 1: foundation + homepage (hero artifact, palette, X-ray)~~ ✅
-2. Craft lab: live embedded demos in the `/craft` grid (rauno.me/craft style) with view-source toggles
-3. Flagship scrollytelling case study for Tia (animated UI states, decision callouts)
-4. Voice pass: microcopy, about-page storytelling, easter eggs
+2. Flagship scrollytelling case study for Tia (animated UI states, decision callouts)
+3. Voice pass: microcopy, about-page storytelling, easter eggs

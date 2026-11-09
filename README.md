@@ -1,6 +1,6 @@
 # ssaisreenivas.in
 
-My personal site: work, writing, open source, a lab of small tools, and the trips that don't fit anywhere else.
+My personal site: work, writing, open source, and the trips that don't fit anywhere else.
 
 **Live:** [ssaisreenivas.in](https://ssaisreenivas.in)
 
@@ -10,13 +10,11 @@ My personal site: work, writing, open source, a lab of small tools, and the trip
 
 | Route | What it is |
 | --- | --- |
-| `/` | Hero, the "now" strip, selected work, latest experiments and posts |
-| `/craft` | The lab: experiments and small free tools (timezone converter, Swiggy → Zomato location bridge) |
+| `/` | Hero, selected work and latest posts |
 | `/blog` | Writing on AI, building products, open source, and Hyderabad traffic |
 | `/open-source` | What I give away: Bantu, Bujji, Claude Switcher, a free Git course, and more |
 | `/extras` | Places I've been: Ladakh, Thailand, with my own photos |
 | `/about` | Story, beliefs, timeline, tools |
-| `/now` | What I'm focused on this month |
 
 Hidden extras: press **⌘K** for the command palette, and turn on **x-ray mode** from there to see the site taken apart as a blueprint.
 
@@ -44,16 +42,13 @@ bun run start    # serve the production build
 
 ```
 app/                  routes (App Router), layout, global styles, fonts
-  api/geocode/        address → map pin via OpenStreetMap Nominatim (craft tool)
-  api/unfurl/         follows allow-listed share links to a pin (craft tool)
 content/
   blog/*.mdx          posts
-  craft/*.mdx         lab entries
 src/
   Data.js             work entries shown on the homepage
   site.js             name, email, nav links, socials
   components/         header, footer, ⌘K palette, hero artifact, reveals…
-  lib/                MDX loaders (blog, craft) and location helpers
+  lib/                MDX loader for the blog
 public/images/
   blog/               post covers and diagrams (hand-made SVG)
   extras/             travel photos (resized, metadata stripped)
@@ -82,8 +77,6 @@ Reading time is worked out automatically. For an image with a caption inside a p
   <figcaption>Caption text.</figcaption>
 </figure>
 ```
-
-**A lab entry:** create `content/craft/<slug>.mdx` with `title`, `date`, `description` and `status` (`wip` | `shipped` | `exploring`). Optional fields: `tags`, `type`, `demoLink`, `sourceLink`, `cover`. Full interactive tools get their own route under `app/craft/<name>/`.
 
 **A work entry:** add an object to `src/Data.js`. Leave out `link` if there's nothing to visit.
 

@@ -4,7 +4,7 @@ export const Data = [
     web: "getsubler.com",
     link: "https://subler-ui-redesign.d2wwr42rewz6uo.amplifyapp.com",
     tags: [
-      { name: "2026", color: "gray" },
+      { name: "2026 — now", color: "gray" },
       { name: "Full-stack Product", color: "purple" },
       { name: "Payments & Ops", color: "blue" },
     ],
@@ -107,7 +107,7 @@ export const Data = [
   {
     Name: "Tia by Intripid",
     tags: [
-      { name: "2024—26 · Previously", color: "gray" },
+      { name: "2024 — 26", color: "gray" },
       { name: "Tech Lead", color: "purple" },
       { name: "AI Assistant", color: "blue" },
     ],
@@ -128,6 +128,10 @@ export const Data = [
     web: "leafcraftstudios.com",
     link: "http://leafcraftstudios.com/",
     tags: [
+      {
+        name: "2021 — 24",
+        color: "gray",
+      },
       {
         name: "Front End Development",
         color: "teal",

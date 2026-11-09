@@ -6,11 +6,10 @@ import RevealLine from "../src/components/RevealLine";
 import WorkList from "../src/components/WorkList";
 import { Data } from "../src/Data";
 import { getAllBlogPosts } from "../src/lib/blog";
-import { getAllCraft } from "../src/lib/craft";
 import { SITE } from "../src/site";
 
 const STATS = [
-  { key: "years_building_products", value: "4+" },
+  { key: "years_building_products", value: "5+" },
   { key: "companies_shipped_at", value: "3" },
   { key: "largest_team_led", value: "25 people" },
 ];
@@ -21,12 +20,6 @@ const SectionLabel = ({ children }) => (
     {children}
   </p>
 );
-
-const STATUS_COLOR = {
-  shipped: "bg-green",
-  wip: "bg-amber",
-  exploring: "bg-[#94a3b8]",
-};
 
 const formatDate = (date) =>
   new Date(date)
@@ -39,7 +32,6 @@ const formatDate = (date) =>
 
 export default function Home() {
   const posts = getAllBlogPosts();
-  const craft = getAllCraft();
 
   return (
     <div className="pt-12 md:pt-20">
@@ -74,10 +66,10 @@ export default function Home() {
                 Get in touch →
               </a>
               <Link
-                href="/craft"
+                href="/open-source"
                 className="inline-block rounded-lg border border-line-mid px-5 py-2.5 font-mono text-[12px] text-dim transition-colors hover:border-line-bright hover:text-ink"
               >
-                Enter the lab
+                See open source
               </Link>
             </div>
 
@@ -109,26 +101,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Now strip */}
-      <Reveal delay={0.1} className="mt-20">
-        <Link
-          href="/now"
-          data-x="now-strip"
-          className="group flex flex-wrap items-center gap-3 rounded-xl border border-line px-5 py-4 transition-colors hover:border-line-mid"
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-green" />
-          <span className="font-mono text-[11px] tracking-wide text-dim">
-            now
-          </span>
-          <span className="text-[12.5px] text-dim">
-            Shipping Subler and Maayana · open-source agent tools · writing more
-          </span>
-          <span className="ml-auto font-mono text-[10px] text-ash transition-colors group-hover:text-ink">
-            /now →
-          </span>
-        </Link>
-      </Reveal>
-
       {/* Selected work */}
       <section data-x="selected-work" className="mt-24">
         <Reveal>
@@ -141,52 +113,6 @@ export default function Home() {
           <WorkList items={Data} />
         </Reveal>
       </section>
-
-      {/* Craft strip */}
-      {craft.length > 0 && (
-        <section data-x="craft" className="mt-24">
-          <Reveal>
-            <div className="flex items-baseline justify-between">
-              <div>
-                <SectionLabel>the lab</SectionLabel>
-                <h2 className="mt-4 font-mono text-[clamp(19px,2.2vw,23px)] font-bold tracking-[-0.3px] text-ink">
-                  Experiments in progress
-                </h2>
-              </div>
-              <Link
-                href="/craft"
-                className="font-mono text-[11px] text-ash transition-colors hover:text-ink"
-              >
-                all experiments →
-              </Link>
-            </div>
-            <div className="mt-10 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {craft.slice(0, 3).map(({ slug, frontmatter }) => (
-                <Link
-                  key={slug}
-                  href={`/craft/${slug}`}
-                  className="group rounded-xl border border-line p-5 transition-all hover:-translate-y-0.5 hover:border-line-mid"
-                >
-                  <p className="flex items-center gap-2 font-mono text-[9px] tracking-wide text-dim">
-                    <span
-                      className={`h-1.5 w-1.5 rounded-full ${
-                        STATUS_COLOR[frontmatter.status] || "bg-ash"
-                      }`}
-                    />
-                    {formatDate(frontmatter.date)}
-                  </p>
-                  <h3 className="mt-3 font-mono text-[13.5px] font-bold leading-snug text-ink">
-                    {frontmatter.title}
-                  </h3>
-                  <p className="mt-2 line-clamp-2 text-[12px] leading-relaxed text-dim">
-                    {frontmatter.description}
-                  </p>
-                </Link>
-              ))}
-            </div>
-          </Reveal>
-        </section>
-      )}
 
       {/* Writing */}
       <section data-x="writing" className="mt-24">
